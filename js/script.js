@@ -47,13 +47,13 @@
 			body.css({'overflow':'hidden'});//hide scroll
 			//FadeOut & FadeIn de la main-section
 			$('#header-logo-container').addClass('header-logo-load');
-			main_section.animate({opacity:0.5,marginLeft:'-100%'},100,function(){ //Offset Left & opacity
+			main_section.animate({opacity:0.5,marginLeft:'-100%'},500,function(){ //Offset Left & opacity
 				
 				
 				main_section.load('data.php?page='+location.hash.substr(1),function(){//load du data.php
 					window.scrollTo(0, 0);//scrolling top
 					main_section.css({'marginLeft':'100%'});//Offset Right
-					main_section.animate({opacity:1,marginLeft:"0"},100,function(){//Offset Right & opacity
+					main_section.animate({opacity:1,marginLeft:"0"},500,function(){//Offset Right & opacity
 						body.css({'overflow':'auto'});//show scroll
 						$('#header-logo-container').removeClass('header-logo-load');
 					});

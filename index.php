@@ -14,13 +14,16 @@
   </head>
   <body>
     <header>
-      <div class='btn cursor-on mw640' id='nav-logo'></div>
+      <div class='btn cursor-on mw640' id='nav-menu'></div>
       <ul id='menu'>
         <li class='btn btn-nav' data-uri="home"><span>Home</span></li>
         <li class='btn btn-nav' data-uri="profil"><span>Profil</span></li>
         <li class='btn btn-nav' data-uri="plans"><span>Plans</span></li>
       </ul>
-      <h1 id="header-title" class="btn-nav cursor-on" data-uri="home">CubbyHole</h1>
+      <div id="header-logo-container" class="btn-nav cursor-on" data-uri="home">
+        <div id="header-logo"></div>
+        <span>cubbyhole</span>
+      </div>
       <div data-uri='disconnect' id='nav-exit' class="btn btn-nav"></div>
       <div id='nav-user-info' class="btn btn-nav" data-uri="profil">
         <div>
@@ -53,8 +56,6 @@
 
   <div id="footer_earth"></div>
     
-
-   
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src='js/jquery-ui.js' type='text/javascript'></script>

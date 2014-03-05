@@ -46,9 +46,7 @@
       
 			body.css({'overflow':'hidden'});//hide scroll
 			//FadeOut & FadeIn de la main-section
-			$('#header-logo-container').addClass('header-logo-load',function(){
-				setTimeout(function() {$('#header-logo-container').removeClass('header-logo-load');},1000);
-			});
+			$('#header-logo-container').addClass('header-logo-load');
 			main_section.animate({opacity:0.5,marginLeft:'-100%'},500,function(){ //Offset Left & opacity
 				
 				
@@ -57,9 +55,11 @@
 				main_section.css({'marginLeft':'100%'});//Offset Right
 				main_section.animate({opacity:1,marginLeft:"0"},500,function(){//Offset Right & opacity
 					body.css({'overflow':'auto'});//show scroll
+					$('#header-logo-container').removeClass('header-logo-load');
 				});
 				
 			});	
+			
 		
 		
     });

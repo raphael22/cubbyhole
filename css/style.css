@@ -571,6 +571,7 @@ footer:before {
 
 header {
   position: fixed;
+  overflow: hidden;
   top: 0;
   width: 100%;
   height: 100px;

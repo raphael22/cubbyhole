@@ -23,12 +23,16 @@
 		/*GET PAGE ON RELOAD*/
 		if(location.hash!=""){
 			var hash = location.hash.substr(1);
+			body.css({'overflow':'hidden','cursor':'wait'});
+			main_section.css({'opacity':0,'marginLeft':'100%'});
 			main_section.load('data.php?page=' + hash);
-			main_section.animate({opacity:1},500);
+			main_section.animate({opacity:1,marginLeft:0},1000,function(){
+				body.css({'overflow':'auto','cursor':'auto'});
+			});
+			
 		}
 		else {
-			main_section.load('data.php?page=' + "home");
-			main_section.animate({opacity:1},500);
+			location.hash='home';
 		}
 	});
 
@@ -48,13 +52,13 @@
 		body.css({'overflow':'hidden','cursor':'wait'});//hide scroll
 		//FadeOut & FadeIn de la main-section
 		$('#header-logo-container').addClass('header-logo-load');
-		main_section.animate({opacity:0.5,marginLeft:'-100%'},1000,function(){ //Offset Left & opacity
+		main_section.animate({opacity:0.5,marginLeft:'-100%'},500,function(){ //Offset Left & opacity
 			
 			
 			main_section.load('data.php?page='+location.hash.substr(1),function(){//load du data.php
 				window.scrollTo(0, 0);//scrolling top
 				main_section.css({'marginLeft':'100%'});//Offset Right
-				main_section.animate({opacity:1,marginLeft:"0"},1000,function(){//Offset Right & opacity
+				main_section.animate({opacity:1,marginLeft:0},500,function(){//Offset Right & opacity
 					body.css({'overflow':'auto','cursor':'auto'});//show scroll
 					$('#header-logo-container').removeClass('header-logo-load');
 					load=false;

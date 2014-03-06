@@ -103,10 +103,10 @@ $c2:aquamarine;
 		height: 100%;
 		margin:0;
 		padding: 0;
-		padding-bottom: 195px;
+		padding-bottom: 95px;
 		display: inline-block;
 		background-position: 0 100px;
-		@include linear-gradient(-15deg,darken($c,25%),rgba($c2,.9));	
+		@include linear-gradient(-15deg,darken($c,25%),rgba($c2,.6));	
 	}
 	
 /*

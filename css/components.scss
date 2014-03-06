@@ -2,11 +2,12 @@
 *** BUTTON
 */
 	.btn{	
-		box-shadow:	0 0 2px 0px black,inset 1px 1px 1px 0 rgba(white,.5),inset -1px -1px 1px 0 rgba(black,.5);	
+		box-shadow:	0 0 2px 0px black,inset 1px 1px 1px 0 rgba(white,.5),inset -1px -1px 1px 0 rgba(black,.2);	
 		border-radius:1px;
 		cursor:pointer;	
-		@include transition(box-shadow .5s);
+		@include transition(box-shadow .5s,transform .5s);
 		&:hover{	
+			@include transform(translateY(1px));
 			box-shadow:	0 0 3px 0px black,
 			inset 0 0 2px 1px darken(rgba($c,.3),40%);			
 		}	
@@ -115,7 +116,7 @@
 		border-top: 1px solid darken($c,40%);
 		bottom: 0;
 		width: 100%;
-		height: 200px;
+		height: 50px;
 		box-shadow:0 0 4px 2px black;
 		@include radial-gradient(bottom,darken(white,5%),white);
 		opacity: .7;
@@ -141,12 +142,12 @@
 			z-index: -1;
 			position: absolute;
 			font-family: FontAwesome;
-			font-size:60vmin;
-			bottom: -60px;
-			right:-110px;
+			font-size:500px;
+			bottom: -300px;
+			right:-120px;
 			color: $c;
 			@include stroke(1,2px,rgba(black,.6));	
-			//@include animation(rotate 180s infinite linear); //BUG LE MENU SUR CHROME Oo"
+			@include animation(rotate 180s infinite linear); //BUG LE MENU SUR CHROME Oo"
 		}
 	
 	}
@@ -160,7 +161,7 @@
 		position: absolute;
 		top: 100px;
 		width: 100%;
-		height: calc(100% - 300px);
+		height: calc(100% - 150px);
 		z-index: 1;
 		@include linear-gradient(10deg,rgba(darken(red,25%),.9),rgba(darken(red,5%),.2));
 		@include box-sizing(border-box);

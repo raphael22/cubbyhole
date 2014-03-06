@@ -17,7 +17,7 @@
 		line-height: 40px;
 		max-width: 200px;
 		margin: 0 auto;
-		$c2:rgba(darken($c2,20%),.3);
+		$c2:rgba(darken($c2,20%),.5);
 		@include radial-gradient(top,$c2,darken($c2,30%));
 	}
 }

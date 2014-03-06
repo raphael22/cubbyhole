@@ -2,12 +2,11 @@
 *** BUTTON
 */
 	.btn{	
-		box-shadow:	0 0 2px 0px black;	
+		box-shadow:	0 0 2px 0px black,inset 1px 1px 1px 0 rgba(white,.5);	
 		border-radius:1px;
-		cursor:pointer;
-		@include transition(background .5s);
-		&:hover{
-			background:rgba(black,.1) !important;	
+		cursor:pointer;	
+		@include transition(background-image .5s);
+		&:hover{	
 			box-shadow:	0 0 2px 0px black,
 			inset 0 0 2px 1px darken(rgba($c,.3),40%);			
 		}	
@@ -31,10 +30,10 @@
 		@include box-sizing(border-box);
 		
 		&:nth-of-type(2n + 1){			
-			background: darken($c,10%);		
+			@include radial-gradient(top,white,darken(white,2%),darken(white,10%) 99%);	
 		}
 		&:nth-of-type(2n + 2){			
-			background: darken($c,20%);			
+			@include radial-gradient(top,white,$c,darken($c,10%) 99%);		
 		}
 		.title{
 			text-align: center;
@@ -118,14 +117,14 @@
 		width: 100%;
 		height: 200px;
 		box-shadow:0 0 4px 2px black;
-		@include linear-gradient(top,darken($c,40%),darken($c,15%));
-		opacity: .9;
+		@include radial-gradient(bottom,darken(white,5%),white);
+		opacity: .7;
 		&:before{
 			content: '';
 			display: inline-block;
 			position: absolute;
 			left: 0;right: 0;top: 0;bottom: 0;
-			@include linear-gradient(transparent 50%, rgba(0,0,0, 0.3)  50%);
+			@include linear-gradient(transparent 50%, rgba(0,0,0, 0.25)  50%);
 			background-size:100% 3px;	
 			pointer-events:none;	
 		}
@@ -145,7 +144,7 @@
 			font-size:60vmin;
 			bottom: -60px;
 			right:-110px;
-			color: $cd5;
+			color: $c;
 			@include stroke(1,2px,rgba(black,.6));	
 			//@include animation(rotate 180s infinite linear); //BUG LE MENU SUR CHROME Oo"
 		}

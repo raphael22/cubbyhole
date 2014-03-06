@@ -1,5 +1,3 @@
-@import 'bourbon';
-
 #home{
 	text-align: center;
 	h2{
@@ -14,11 +12,12 @@
 			@include linear-gradient(left,rgba(0,0,0,0),lighten(black,40%),black,lighten(black,40%),rgba(0,0,0,0));
 		}
 	}
-	h4{
-
+	h4{		
 		height: 40px;
 		line-height: 40px;
 		max-width: 200px;
 		margin: 0 auto;
+		$c2:rgba(darken($c2,20%),.3);
+		@include radial-gradient(top,$c2,darken($c2,30%));
 	}
 }

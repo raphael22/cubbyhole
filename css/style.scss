@@ -3,8 +3,7 @@
 *** VARS
 */
 $c:#efefef;
-$c2:#2f3945;//darkgrey
-$cd5:darken($c,0%);
+$c2:aquamarine;
 
 /*
 ***MIXINS
@@ -83,6 +82,7 @@ $cd5:darken($c,0%);
 */
 @import 'components.scss';
 @import 'navigation.scss';
+@import 'home.scss';
 
 /*
 ***GENERALS
@@ -105,7 +105,7 @@ $cd5:darken($c,0%);
 		padding: 0;
 		padding-bottom: 195px;
 		display: inline-block;
-		@include linear-gradient(-10deg,darken($c,25%),white);		
+		@include linear-gradient(-10deg,darken($c,25%),rgba(aquamarine,.5));		
 	}
 	
 /*

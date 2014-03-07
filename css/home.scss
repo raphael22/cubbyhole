@@ -1,5 +1,4 @@
 #home{
-	height: 1500px;
 	text-align: center;
 	h2{
 		margin-bottom: 20px;
@@ -13,5 +12,8 @@
 		margin-bottom: 10px;
 		$c2:rgba(darken($c2,20%),.5);
 		@include radial-gradient(top,$c2,darken($c2,30%));
+	}
+	img{
+		width: 100%;
 	}
 }

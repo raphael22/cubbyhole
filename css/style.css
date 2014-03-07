@@ -881,7 +881,6 @@ header .header-logo-load:before {
 }
 
 #home {
-  height: 1500px;
   text-align: center;
 }
 
@@ -900,6 +899,10 @@ header .header-logo-load:before {
   background-image: -webkit-radial-gradient(top, rgba(25, 255, 178, 0.5), rgba(0, 127, 84, 0.5));
   background-image: -webkit-radial-gradient(at top, rgba(25, 255, 178, 0.5), rgba(0, 127, 84, 0.5));
   background-image: radial-gradient(  at top, rgba(25, 255, 178, 0.5), rgba(0, 127, 84, 0.5));
+}
+
+#home img {
+  width: 100%;
 }
 
 #plan {

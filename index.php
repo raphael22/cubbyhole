@@ -38,8 +38,6 @@
       
     </header>
 
-    <div id='header-clear'></div>
-
     <div id="main-section">
 
 

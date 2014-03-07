@@ -17,20 +17,20 @@ $c2:aquamarine;
 	@mixin logoHover($v,$x,$name){
 		@include keyframes($name){
 			0%,50%,100% {
-	       		@include transform(translate(0));
+	       		@include transform(translate3D(0,0,0));
 		    }
 		    25% {
-	       		@include transform(translate($v*$x));
+	       		@include transform(translate3D($v*$x,0,0));
 		    }
 		    75% {
-	       		@include transform(translate($v*(-$x*2)));
+	       		@include transform(translate3D($v*(-$x*2),0,0));
 		    }
 		}
 	}
 /*
 ***ANIMATIONS
 */
-	$x:4px;
+	$x:5.5px;
 	@include logoHover(1,$x,lh1);			
 	@include logoHover(-1,$x,lh2);
 	@include logoHover(2,$x,lh3);
@@ -83,7 +83,7 @@ $c2:aquamarine;
 @import 'components.scss';
 @import 'navigation.scss';
 @import 'home.scss';
-
+@import 'plans.scss';
 /*
 ***GENERALS
 */
@@ -95,7 +95,7 @@ $c2:aquamarine;
 	
 	html{
 		min-height: 100%;
-		position: relative;			
+		position: relative;		
 	}
 	
 	body{

@@ -16,7 +16,7 @@
 			background: $c;
 			@include box-sizing(border-box);
 			@include radial-gradient(top,white,$c,darken($c,5%) 99%);
-			@include transition(height .5s,box-shadow .5s);
+			@include transition(top .5s .2s,height .5s .2s,box-shadow .5s);
 			
 				
 			.btn{
@@ -52,7 +52,7 @@
 				position: absolute;
 				width: 2px;
 				display: inline-block;	
-				@include transition(transform .5s,height .5s);		
+				@include transition(transform .5s,height .5s .2s);		
 			}
 
 			#header-logo-container{
@@ -62,12 +62,12 @@
 				margin-left: -120px;
 				width: 40px;
 				height: 100%;
-				@include transition(margin-left .5s,left .5s);@include perspective(900px);
+				@include transition(margin-left .5s,left .5s);
 				&:before,&:after{
 					@extend .logo-style;
 					content:'';
 					margin-top: 30px;	
-					height: 40px;	@include perspective(900px);	
+					height: 40px;
 				}
 				&:after{				
 					margin-left: 40px;
@@ -75,13 +75,13 @@
 				#header-logo{									
 					top: 10px;	
 					left: 50%;			
-					height: 80px;	@include perspective(900px);				
+					height: 80px;			
 					@extend .logo-style;
 					
 					&:before,&:after{
 						content:'';
 						margin-top: 10px;
-						height: 60px;		@include perspective(900px);				
+						height: 60px;				
 						@extend .logo-style;
 					}
 					&:before{
@@ -101,7 +101,7 @@
 					@include transition(opacity .2s,left .5s);
 				}
 				&:hover{
-					$at:1s .5s;
+					$at:1s .2s;
 					$af:infinite;
 					$am:linear;
 					margin-left: -160px;
@@ -117,8 +117,7 @@
 						}
 						&:after{
 							@include animation(lh2 $at $am $af);
-						}
-						
+						}						
 					}
 					&:after{
 						@include animation(lh3 $at $am $af);
@@ -140,10 +139,9 @@
 					}
 					&:after{
 						@include animation(lh2 $at $am $af);
-					}
-					
+					}					
 				}
-				&:after{
+				&:after{ 
 					@include animation(lh3 $at $am $af);
 				}
 				&:before{
@@ -158,7 +156,8 @@
 			
 		}
 		.header-min{
-			height: 70px;			
+			height: 70px;	
+			top: -30px;		
 			box-shadow:0 0 2px 0px black;
 			#header-logo{
 				height: 60px !important;
@@ -236,8 +235,7 @@
 			width: 40px;
 			height: 100%;
 			float: left;			
-			line-height: 75px;
-			@include transition(opacity .5s,display 0s .5s,background .5s);		
+			line-height: 75px;		
 			&:before{
 				content: '\f085';
 				position: relative;

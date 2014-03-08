@@ -3,7 +3,8 @@
 *** VARS
 */
 $c:#efefef;
-$c2:aquamarine;
+$c2:dodgerblue;
+
 
 /*
 ***MIXINS
@@ -75,22 +76,17 @@ $c2:aquamarine;
 		0%,30%,100%{@include stroke(2,6px,rgba($tsc,.6));}
 		10%{@include stroke(2,8px,rgba($tsc,1));}
 	}
-
-
-/*
-*** IMPORT
-*/
-@import 'components.scss';
-@import 'navigation.scss';
-@import 'home.scss';
-@import 'plans.scss';
 /*
 ***GENERALS
 */
 	
 	p,h6,h5,h4,h3,h2,h1,span,div{margin: 0;font-family: 'Raleway', sans-serif; font-weight: 200; text-shadow:0 0 1px;}
 	h2{font-weight: 400;}
-	p,h6,h5,h4,h3,h2,h1,.cursor-off{ cursor:default; }
+	p,h6,h5,h4,h3,h2,h1,.cursor-off{ 
+		cursor:default;
+		backface-visibility: hidden; 
+		-webkit-font-smoothing:antialiased;
+	}
 	li,.cursor-on{ cursor:pointer; }	
 	
 	html{
@@ -103,11 +99,41 @@ $c2:aquamarine;
 		height: 100%;
 		margin:0;
 		padding: 0;
-		padding-bottom: 95px;
+		padding-bottom: 50px;
 		display: inline-block;
 		background-position: 0 100px;
-		@include linear-gradient(-15deg,darken($c,25%),rgba($c2,.6));	
+		background-repeat: no-repeat;
+		@include linear-gradient(-15deg,rgba(midnightblue,.8),rgba(darkturquoise,.8));	
+		&:before{
+			content:'';
+			z-index: -1;
+			display: inline-block;
+			position: absolute;
+			left: 0;right: 0;bottom: 0;top: 0;
+			@include radial-gradient(rgba(cyan,.15) 2%,rgba(indigo,.2) 70%);			
+		}
+		&:after{
+			content: '';
+			z-index: -1;
+			display: inline-block;
+			position: absolute;
+			left: 0;right: 0;top: 0;bottom: 0;			
+			background-position: 0 100px;
+			@include linear-gradient(transparent 50%, rgba(0,0,0, 0.2)  50%);
+			background-size:100% 3px;	
+			pointer-events:none;	
+		}
+		
 	}
+
+/*
+*** IMPORT
+*/
+@import 'components.scss';
+@import 'navigation.scss';
+@import 'home.scss';
+@import 'plans.scss';
+
 	
 /*
 *** IMPORT MEDIA

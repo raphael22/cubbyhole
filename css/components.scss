@@ -7,13 +7,14 @@
 					inset -1px -1px 1px 0 rgba(black,.2);	
 		border-radius:1px;
 		cursor:pointer;	
-		@include transition(box-shadow .5s,transform .5s);
+		
 		backface-visibility: hidden;
-			
+		@include transition(transform .5s,border .5s,box-shadow .5s);
 		&:hover{	
 			@include transform(translate3D(0,1px,0));
-			box-shadow:	0 0px 2px 0px black;		
-
+			box-shadow: 0 0 2px 0px black,
+						inset 1px 1px 1px 0 rgba(white,.1),
+						inset -1px -1px 1px 0 rgba(black,.1);
 		}	
 	}	
 
@@ -21,9 +22,13 @@
 /*
 ***SECTION
 */
-	#main-section{
+	#main-section{		
 		margin-top: 100px;
 		width: 100%;
+	}
+	.center-section{		
+		max-width: 1000px;
+		margin: 0 auto;
 	}
 	section{
 		position: relative;
@@ -32,14 +37,26 @@
 		float: left;
 		overflow: auto;
 		cursor:default;
-		box-shadow: 0 0 1px 0 black;
+		border-radius:1px;
+		box-shadow: 0 0 1px 0 black;	
 		@include box-sizing(border-box);
-		
-		&:nth-of-type(2n + 1){			
-			@include radial-gradient(top,white,darken(white,2%),darken(white,10%) 99%);	
+		.btn{	
+			box-shadow:	0 1px 3px 0px black,
+						inset 1px 1px 2px 0 rgba(white,.5),
+						inset -1px -1px 2px 0 rgba(black,.2);		
+			border-radius: 4px;				
+			height: 40px;
+			line-height: 40px;
+			border:3px solid darken(rgba($c2,.7),20%);
+			&:hover{
+				border-color: darken(rgba($c2,.9),20%);
+			}	
 		}
-		&:nth-of-type(2n + 2){			
-			@include radial-gradient(top,white,$c,darken($c,10%) 99%);		
+		&:nth-of-type(2n + 1){		
+			@include radial-gradient(top,white,$c,darken($c,10%) 99%);
+		}
+		&:nth-of-type(2n + 2){	
+			@include radial-gradient(top,white,darken(white,2%),darken(white,10%) 99%);					
 		}
 		.title{
 			&:after{
@@ -49,6 +66,7 @@
 				width: 100%;
 				height: 2px;
 				margin-bottom: 20px;
+				border-radius:50%;
 				@include linear-gradient(left,rgba(0,0,0,0),lighten(black,40%),black,lighten(black,40%),rgba(0,0,0,0));
 			}
 		}
@@ -124,15 +142,8 @@
 		box-shadow:0 0 4px 2px black;
 		@include radial-gradient(bottom,darken(white,5%),white);
 		opacity: .7;
-		&:before{
-			content: '';
-			display: inline-block;
-			position: absolute;
-			left: 0;right: 0;top: 0;bottom: 0;
-			@include linear-gradient(transparent 50%, rgba(0,0,0, 0.25)  50%);
-			background-size:100% 3px;	
-			pointer-events:none;	
-		}
+		@include box-sizing(border-box);
+		
 	}
 	#footer_earth{
 		position: absolute;

@@ -1,9 +1,7 @@
-<link href='css/plans.css' rel='stylesheet' type='text/css'>
-
-<div id="plan">
+<div id="plan" class="center-section">
 	<section id="plan1" class="plan third-row">
 		<h2 class="title">Light</h2>
-		<div class="btn btn-nav">Subscribe</div>
+		<div class="btn">Subscribe</div>
 	</section>
 
 	<section id="plan2" class="plan third-row">
@@ -17,3 +15,4 @@
 		<div class="btn">Subscribe</div>
 	</section>
 </div>
+

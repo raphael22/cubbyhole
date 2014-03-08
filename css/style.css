@@ -319,6 +319,105 @@
 }
 
 /*
+***GENERALS
+*/
+
+p,
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+span,
+div {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  text-shadow: 0 0 1px;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+p,
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+.cursor-off {
+  cursor: default;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+li,
+.cursor-on {
+  cursor: pointer;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 50px;
+  display: inline-block;
+  background-position: 0 100px;
+  background-repeat: no-repeat;
+  background-color: rgba(25, 25, 112, 0.8);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(25, 25, 112, 0.8)), color-stop(100%, rgba(0, 206, 209, 0.8)));
+  background-image: -webkit-linear-gradient(-255deg, rgba(25, 25, 112, 0.8), rgba(0, 206, 209, 0.8));
+  background-image: -webkit-linear-gradient(105deg, rgba(25, 25, 112, 0.8), rgba(0, 206, 209, 0.8));
+  background-image: linear-gradient(-15deg,rgba(25, 25, 112, 0.8), rgba(0, 206, 209, 0.8));
+}
+
+body:before {
+  content: '';
+  z-index: -1;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 255, 255, 0.15);
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, color-stop(2%, rgba(0, 255, 255, 0.15)), color-stop(70%, rgba(75, 0, 130, 0.2)));
+  background-image: -webkit-radial-gradient(rgba(0, 255, 255, 0.15) 2%, rgba(75, 0, 130, 0.2) 70%);
+  background-image: radial-gradient(  rgba(0, 255, 255, 0.15) 2%, rgba(75, 0, 130, 0.2) 70%);
+}
+
+body:after {
+  content: '';
+  z-index: -1;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-position: 0 100px;
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, rgba(0, 0, 0, 0.2)));
+  background-image: -webkit-linear-gradient(transparent 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-image: -webkit-gradient(linear, top left, bottom left, from(transparent), to(rgba(0, 0, 0, 0.2)));
+  background-image: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.2) 50%);
+  -webkit-background-size: 100% 3px;
+  background-size: 100% 3px;
+  pointer-events: none;
+}
+
+/*
 *** IMPORT
 */
 
@@ -331,19 +430,19 @@
   box-shadow: 0 0 2px 0px black, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 1px 0 rgba(0, 0, 0, 0.2);
   border-radius: 1px;
   cursor: pointer;
-  -webkit-transition: -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
-  transition: box-shadow 0.5s, transform 0.5s;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.5s, border 0.5s, -webkit-box-shadow 0.5s;
+  transition: transform 0.5s, border 0.5s, box-shadow 0.5s;
 }
 
 .btn:hover {
   -webkit-transform: translate3D(0, 1px, 0);
   -ms-transform: translate3D(0, 1px, 0);
   transform: translate3D(0, 1px, 0);
-  -webkit-box-shadow: 0 0px 2px 0px black;
-  box-shadow: 0 0px 2px 0px black;
+  -webkit-box-shadow: 0 0 2px 0px black, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.1), inset -1px -1px 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 0px black, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.1), inset -1px -1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 /*
@@ -355,6 +454,11 @@
   width: 100%;
 }
 
+.center-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 section {
   position: relative;
   padding: 20px 12.5%;
@@ -362,6 +466,7 @@ section {
   float: left;
   overflow: auto;
   cursor: default;
+  border-radius: 1px;
   -webkit-box-shadow: 0 0 1px 0 black;
   box-shadow: 0 0 1px 0 black;
   -webkit-box-sizing: border-box;
@@ -369,20 +474,33 @@ section {
   box-sizing: border-box;
 }
 
-section:nth-of-type(2n + 1) {
-  background-color: white;
-  background-image: -webkit-gradient(radial, center center, 0, center center, 460, color-stop(0%, white), color-stop(50%, #fafafa), color-stop(99%, #e6e6e6));
-  background-image: -webkit-radial-gradient(top, white, #fafafa, #e6e6e6 99%);
-  background-image: -webkit-radial-gradient(at top, white, #fafafa, #e6e6e6 99%);
-  background-image: radial-gradient(  at top, white, #fafafa, #e6e6e6 99%);
+section .btn {
+  -webkit-box-shadow: 0 1px 3px 0px black, inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px 0px black, inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  height: 40px;
+  line-height: 40px;
+  border: 3px solid rgba(0, 93, 183, 0.7);
 }
 
-section:nth-of-type(2n + 2) {
+section .btn:hover {
+  border-color: rgba(0, 93, 183, 0.9);
+}
+
+section:nth-of-type(2n + 1) {
   background-color: white;
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, color-stop(0%, white), color-stop(50%, #efefef), color-stop(99%, #d5d5d5));
   background-image: -webkit-radial-gradient(top, white, #efefef, #d5d5d5 99%);
   background-image: -webkit-radial-gradient(at top, white, #efefef, #d5d5d5 99%);
   background-image: radial-gradient(  at top, white, #efefef, #d5d5d5 99%);
+}
+
+section:nth-of-type(2n + 2) {
+  background-color: white;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, color-stop(0%, white), color-stop(50%, #fafafa), color-stop(99%, #e6e6e6));
+  background-image: -webkit-radial-gradient(top, white, #fafafa, #e6e6e6 99%);
+  background-image: -webkit-radial-gradient(at top, white, #fafafa, #e6e6e6 99%);
+  background-image: radial-gradient(  at top, white, #fafafa, #e6e6e6 99%);
 }
 
 section .title:after {
@@ -392,6 +510,7 @@ section .title:after {
   width: 100%;
   height: 2px;
   margin-bottom: 20px;
+  border-radius: 50%;
   background-color: rgba(0, 0, 0, 0);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(25%, #666666), color-stop(50%, black), color-stop(75%, #666666), color-stop(100%, rgba(0, 0, 0, 0)));
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), #666666, black, #666666, rgba(0, 0, 0, 0));
@@ -482,24 +601,9 @@ footer {
   background-image: -webkit-radial-gradient(at bottom, #f2f2f2, white);
   background-image: radial-gradient(  at bottom, #f2f2f2, white);
   opacity: .7;
-}
-
-footer:before {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: transparent;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, rgba(0, 0, 0, 0.25)));
-  background-image: -webkit-linear-gradient(transparent 50%, rgba(0, 0, 0, 0.25) 50%);
-  background-image: -webkit-gradient(linear, top left, bottom left, from(transparent), to(rgba(0, 0, 0, 0.25)));
-  background-image: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.25) 50%);
-  -webkit-background-size: 100% 3px;
-  background-size: 100% 3px;
-  pointer-events: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #footer_earth {
@@ -593,8 +697,8 @@ header {
   background-image: -webkit-radial-gradient(top, white, #efefef, #e2e2e2 99%);
   background-image: -webkit-radial-gradient(at top, white, #efefef, #e2e2e2 99%);
   background-image: radial-gradient(  at top, white, #efefef, #e2e2e2 99%);
-  -webkit-transition: height 0.5s, -webkit-box-shadow 0.5s;
-  transition: height 0.5s, box-shadow 0.5s;
+  -webkit-transition: top 0.5s 0.2s, height 0.5s 0.2s, -webkit-box-shadow 0.5s;
+  transition: top 0.5s 0.2s, height 0.5s 0.2s, box-shadow 0.5s;
 }
 
 header .btn {
@@ -620,8 +724,8 @@ header #header-logo-container #header-logo:after {
   position: absolute;
   width: 2px;
   display: inline-block;
-  -webkit-transition: -webkit-transform 0.5s, height 0.5s;
-  transition: transform 0.5s, height 0.5s;
+  -webkit-transition: -webkit-transform 0.5s, height 0.5s 0.2s;
+  transition: transform 0.5s, height 0.5s 0.2s;
 }
 
 header #header-logo-container {
@@ -633,9 +737,6 @@ header #header-logo-container {
   height: 100%;
   -webkit-transition: margin-left 0.5s, left 0.5s;
   transition: margin-left 0.5s, left 0.5s;
-  -webkit-perspective: 900px;
-  -ms-perspective: 900px;
-  perspective: 900px;
 }
 
 header #header-logo-container:before,
@@ -643,9 +744,6 @@ header #header-logo-container:after {
   content: '';
   margin-top: 30px;
   height: 40px;
-  -webkit-perspective: 900px;
-  -ms-perspective: 900px;
-  perspective: 900px;
 }
 
 header #header-logo-container:after {
@@ -656,9 +754,6 @@ header #header-logo-container #header-logo {
   top: 10px;
   left: 50%;
   height: 80px;
-  -webkit-perspective: 900px;
-  -ms-perspective: 900px;
-  perspective: 900px;
 }
 
 header #header-logo-container #header-logo:before,
@@ -666,9 +761,6 @@ header #header-logo-container #header-logo:after {
   content: '';
   margin-top: 10px;
   height: 60px;
-  -webkit-perspective: 900px;
-  -ms-perspective: 900px;
-  perspective: 900px;
 }
 
 header #header-logo-container #header-logo:before {
@@ -704,23 +796,23 @@ header #header-logo-container:hover span {
 }
 
 header #header-logo-container:hover #header-logo:before {
-  -webkit-animation: lh1 1s 0.5s linear infinite;
-  animation: lh1 1s 0.5s linear infinite;
+  -webkit-animation: lh1 1s 0.2s linear infinite;
+  animation: lh1 1s 0.2s linear infinite;
 }
 
 header #header-logo-container:hover #header-logo:after {
-  -webkit-animation: lh2 1s 0.5s linear infinite;
-  animation: lh2 1s 0.5s linear infinite;
+  -webkit-animation: lh2 1s 0.2s linear infinite;
+  animation: lh2 1s 0.2s linear infinite;
 }
 
 header #header-logo-container:hover:after {
-  -webkit-animation: lh3 1s 0.5s linear infinite;
-  animation: lh3 1s 0.5s linear infinite;
+  -webkit-animation: lh3 1s 0.2s linear infinite;
+  animation: lh3 1s 0.2s linear infinite;
 }
 
 header #header-logo-container:hover:before {
-  -webkit-animation: lh4 1s 0.5s linear infinite;
-  animation: lh4 1s 0.5s linear infinite;
+  -webkit-animation: lh4 1s 0.2s linear infinite;
+  animation: lh4 1s 0.2s linear infinite;
 }
 
 header .header-logo-load #header-logo:before {
@@ -745,6 +837,7 @@ header .header-logo-load:before {
 
 .header-min {
   height: 70px;
+  top: -30px;
   -webkit-box-shadow: 0 0 2px 0px black;
   box-shadow: 0 0 2px 0px black;
 }
@@ -839,8 +932,6 @@ header .header-logo-load:before {
   height: 100%;
   float: left;
   line-height: 75px;
-  -webkit-transition: opacity 0.5s, display 0s 0.5s, background 0.5s;
-  transition: opacity 0.5s, display 0s 0.5s, background 0.5s;
 }
 
 #nav-menu:before {
@@ -889,25 +980,13 @@ header .header-logo-load:before {
 }
 
 #home h4 {
-  height: 40px;
-  line-height: 40px;
   max-width: 200px;
   margin: 0 auto;
   margin-bottom: 10px;
-  background-color: rgba(25, 255, 178, 0.5);
-  background-image: -webkit-gradient(radial, center center, 0, center center, 460, color-stop(0%, rgba(25, 255, 178, 0.5)), color-stop(100%, rgba(0, 127, 84, 0.5)));
-  background-image: -webkit-radial-gradient(top, rgba(25, 255, 178, 0.5), rgba(0, 127, 84, 0.5));
-  background-image: -webkit-radial-gradient(at top, rgba(25, 255, 178, 0.5), rgba(0, 127, 84, 0.5));
-  background-image: radial-gradient(  at top, rgba(25, 255, 178, 0.5), rgba(0, 127, 84, 0.5));
 }
 
 #home img {
   width: 100%;
-}
-
-#plan {
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 #plan section {
@@ -917,65 +996,6 @@ header .header-logo-load:before {
 #plan .btn {
   height: 40px;
   line-height: 40px;
-}
-
-/*
-***GENERALS
-*/
-
-p,
-h6,
-h5,
-h4,
-h3,
-h2,
-h1,
-span,
-div {
-  margin: 0;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 200;
-  text-shadow: 0 0 1px;
-}
-
-h2 {
-  font-weight: 400;
-}
-
-p,
-h6,
-h5,
-h4,
-h3,
-h2,
-h1,
-.cursor-off {
-  cursor: default;
-}
-
-li,
-.cursor-on {
-  cursor: pointer;
-}
-
-html {
-  min-height: 100%;
-  position: relative;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 95px;
-  display: inline-block;
-  background-position: 0 100px;
-  background-color: #afafaf;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #afafaf), color-stop(100%, rgba(25, 255, 178, 0.6)));
-  background-image: -webkit-linear-gradient(-255deg, #afafaf, rgba(25, 255, 178, 0.6));
-  background-image: -webkit-linear-gradient(105deg, #afafaf, rgba(25, 255, 178, 0.6));
-  background-image: linear-gradient(-15deg,#afafaf, rgba(25, 255, 178, 0.6));
 }
 
 /*

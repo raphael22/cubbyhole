@@ -20,6 +20,14 @@
 */
 	$(document).ready(function(){
 		
+		
+	});
+
+
+/*
+*** WINDOW LOAD
+*/
+	$(window).load(function(){
 		/*GET PAGE ON RELOAD*/
 		if(location.hash!=""){
 			var hash = location.hash.substr(1);
@@ -34,13 +42,6 @@
 		else {
 			location.hash='home';
 		}
-	});
-
-
-/*
-*** WINDOW LOAD
-*/
-	$(window).load(function(){
 	});
 
 /*

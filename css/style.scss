@@ -91,7 +91,10 @@ $c2:dodgerblue;
 	
 	html{
 		min-height: 100%;
-		position: relative;		
+		position: relative;	
+		background-position: 0 100px;
+		background-repeat: no-repeat;
+		@include linear-gradient(-15deg,rgba(midnightblue,.8),rgba(darkturquoise,.8));		
 	}
 	
 	body{
@@ -101,9 +104,7 @@ $c2:dodgerblue;
 		padding: 0;
 		padding-bottom: 50px;
 		display: inline-block;
-		background-position: 0 100px;
-		background-repeat: no-repeat;
-		@include linear-gradient(-15deg,rgba(midnightblue,.8),rgba(darkturquoise,.8));	
+		
 		&:before{
 			content:'';
 			z-index: -1;

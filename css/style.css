@@ -364,7 +364,6 @@ li,
 html {
   min-height: 100%;
   position: relative;
-  background-position: 0 100px;
   background-repeat: no-repeat;
   background-color: rgba(25, 25, 112, 0.8);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(25, 25, 112, 0.8)), color-stop(100%, rgba(0, 206, 209, 0.8)));

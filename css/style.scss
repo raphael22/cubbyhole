@@ -92,7 +92,6 @@ $c2:dodgerblue;
 	html{
 		min-height: 100%;
 		position: relative;	
-		background-position: 0 100px;
 		background-repeat: no-repeat;
 		@include linear-gradient(-15deg,rgba(midnightblue,.8),rgba(darkturquoise,.8));		
 	}

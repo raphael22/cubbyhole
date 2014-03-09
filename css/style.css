@@ -605,6 +605,26 @@ footer {
   box-sizing: border-box;
 }
 
+footer:after {
+  content: '';
+  opacity: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 28, 56, 0.5);
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, color-stop(0%, rgba(0, 28, 56, 0.5)), color-stop(100%, white));
+  background-image: -webkit-radial-gradient(bottom, rgba(0, 28, 56, 0.5), white);
+  background-image: -webkit-radial-gradient(at bottom, rgba(0, 28, 56, 0.5), white);
+  background-image: radial-gradient(  at bottom, rgba(0, 28, 56, 0.5), white);
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.footer-after:after {
+  opacity: 1;
+}
+
 #footer_earth {
   position: absolute;
   z-index: -999;
@@ -972,6 +992,7 @@ header .header-logo-load:before {
 
 #home {
   text-align: center;
+  height: 2000px;
 }
 
 #home h2 {

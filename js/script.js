@@ -33,16 +33,17 @@
 		/*GET PAGE ON RELOAD*/
 		if(location.hash!=""){
 			var hash = location.hash.substr(1);
-			body.css({'overflow':'hidden','cursor':'wait'});
-			main_section.css({'opacity':0,'marginLeft':'100%'});
-			main_section.load('data.php?page=' + hash);
-			main_section.animate({opacity:1,marginLeft:0},1000,function(){
-				body.css({'overflow':'auto','cursor':'auto'});
-			});
+			main_section.css({'opacity':'0'});
+			main_section.load('data.php?page='+hash);
+
+			main_section.animate({opacity:1},500);
 			
 		}
 		else {
-			location.hash='home';
+			main_section.css({'opacity':'0'});
+			main_section.load('data.php?page=home');
+
+			main_section.animate({opacity:1},500);
 		}
 	});
 
@@ -51,7 +52,7 @@
 */
 	win.on('popstate', function() {
       
-		body.css({'overflow':'hidden','cursor':'wait'});//hide scroll
+		body.css({'overflow-x':'hidden','cursor':'wait'});//hide scroll
 		//FadeOut & FadeIn de la main-section
 		$('#header-logo-container').addClass('header-logo-load');
 		main_section.animate({opacity:0.5,marginLeft:'-100%'},500,function(){ //Offset Left & opacity			
@@ -61,7 +62,7 @@
 				window.scrollTo(0, 0);//scrolling top
 				main_section.css({'marginLeft':'100%'});//Offset Right
 				main_section.animate({opacity:1,marginLeft:0},500,function(){//Offset Right & opacity
-					body.css({'overflow':'auto','cursor':'auto'});//show scroll
+					body.css({'overflow-x':'auto','cursor':'auto'});//show scroll
 					$('#header-logo-container').removeClass('header-logo-load');
 					load=false;
 				});
@@ -85,9 +86,9 @@
 			}
 			else{
 				load=true;
-				body.css({'overflow':'hidden'});//hide scroll
+				body.css({'overflow-x':'hidden'});//hide scroll
 				main_section.effect( "shake", 500, function(){
-					body.css({'overflow':'auto'});//show scroll
+					body.css({'overflow-x':'auto'});//show scroll
 					load=false;
 				});
 			} 
@@ -95,9 +96,16 @@
 		
 	});
 
+	//MENU
 	nav_button.click(function(){
 		menu.toggleClass('toggleMinMenu');
 	});
+
+	//DEBUG CSS
+	$('#debug-css').click(function(){
+		body.toggleClass('debug-css');
+	});
+	
 
 
 /*
@@ -172,22 +180,5 @@
 	}*/
 
 
-/*
-*** NAV CONTROL(PROTO)
-*/
-	
-	/*btn_path.click(changePath);
 
-	function changePath(){
-		var dataUrl = $(this).data("uri");
-		location.hash=dataUrl;
-		if($('#'+dataUrl+'_page').hasClass('pageShow')){
-			$('#'+dataUrl+'_page').removeClass('pageShow');				
-			$('.page').removeClass('pageShow');			
-		}
-		else{
-			$('.page').removeClass('pageShow');	
-			$('#'+dataUrl+'_page').addClass('pageShow');
-		}
-	}*/
 

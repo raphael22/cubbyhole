@@ -103,7 +103,7 @@ $c2:dodgerblue;
 		height: 100%;
 		margin:0;
 		padding: 0;
-		padding-bottom: 50px;
+		padding-bottom: 46px;
 		display: inline-block;
 		
 		&:before{
@@ -126,6 +126,15 @@ $c2:dodgerblue;
 			pointer-events:none;	
 		}
 		
+	}
+	.debug-css{
+		outline:1px red solid;
+		*{
+			outline:1px red solid;
+		}
+		*:before,*:after{
+			outline:1px yellow solid;
+		}
 	}
 
 /*

@@ -1,4 +1,4 @@
-<div id="home" class="center-section">
+<div>
 	<section id="home">
 		<h2 class="title">Welcome on CubbyHole</h2>
 		<h4 class="btn btn-nav" data-uri="plans">Sign up</h4>

@@ -3,7 +3,7 @@
   <head>
     <title>CubbyHole</title>
     <meta charset='utf-8'>
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <link href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Condiment' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,800' rel='stylesheet' type='text/css'>
@@ -13,6 +13,7 @@
     <link href='css/style.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
+
     <header>
       <div class='btn cursor-on mw640' id='nav-menu'></div>
       <ul id='menu'>
@@ -32,27 +33,16 @@
         <div >
           <span id="nav-user-stockage">100Gb</span>
         </div>
-      </div>
-     
-      
-      
+      </div>     
     </header>
 
-    <div id="main-section">
+    <div id="main-section"></div>
 
+  	<footer>
+      <div id="debug-css" class="btn">Debug</div>
+    </footer>
 
-
-
-
-
-
-
-	</div>
-
-	<footer>
-  </footer>
-
-  <div id="footer_earth"></div>
+    <div id="footer-earth"></div>
     
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

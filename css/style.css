@@ -375,7 +375,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  padding-bottom: 50px;
+  padding-bottom: 46px;
   display: inline-block;
 }
 
@@ -414,6 +414,19 @@ body:after {
   pointer-events: none;
 }
 
+.debug-css {
+  outline: 1px red solid;
+}
+
+.debug-css * {
+  outline: 1px red solid;
+}
+
+.debug-css *:before,
+.debug-css *:after {
+  outline: 1px yellow solid;
+}
+
 /*
 *** IMPORT
 */
@@ -430,8 +443,8 @@ body:after {
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.5s, border 0.5s, -webkit-box-shadow 0.5s;
-  transition: transform 0.5s, border 0.5s, box-shadow 0.5s;
+  -webkit-transition: background-position 1s, -webkit-transform 0.5s, border 0.5s, -webkit-box-shadow 0.5s;
+  transition: background-position 1s, transform 0.5s, border 0.5s, box-shadow 0.5s;
 }
 
 .btn:hover {
@@ -447,22 +460,25 @@ body:after {
 */
 
 #main-section {
-  margin-top: 100px;
   width: 100%;
 }
 
-.center-section {
+#main-section > div {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+#main-section > div > section:first-child {
+  padding-top: 120px;
 }
 
 section {
   position: relative;
   padding: 20px 12.5%;
   width: 100%;
-  float: left;
   overflow: auto;
   cursor: default;
+  float: left;
   border-radius: 1px;
   -webkit-box-shadow: 0 0 1px 0 black;
   box-shadow: 0 0 1px 0 black;
@@ -534,10 +550,7 @@ section .text {
 /*PROGRESS BAR*/
 
 .meter {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
+  position: relative;
   margin: 5px;
   height: 8px;
   cursor: wait;
@@ -599,12 +612,16 @@ footer {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 footer:after {
   content: '';
   opacity: 0;
   bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -617,11 +634,37 @@ footer:after {
   transition: opacity 0.5s;
 }
 
+footer .btn {
+  position: relative;
+  z-index: 1;
+  width: 100px;
+  height: 100%;
+  line-height: 300%;
+  padding: 0 10px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+footer .btn:hover {
+  background-position: 100px;
+}
+
+footer #debug-css {
+  float: left;
+  background-color: rgba(255, 0, 0, 0.4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 0, 0, 0.4)), color-stop(100%, rgba(255, 0, 0, 0.6)));
+  background-image: -webkit-linear-gradient(left, rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.6));
+  background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 0, 0, 0.4)), to(rgba(255, 0, 0, 0.6)));
+  background-image: linear-gradient(to right,rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.6));
+}
+
 .footer-after:after {
   opacity: 1;
 }
 
-#footer_earth {
+#footer-earth {
   position: absolute;
   z-index: -999;
   bottom: 0;
@@ -630,7 +673,7 @@ footer:after {
   overflow: hidden;
 }
 
-#footer_earth:after {
+#footer-earth:after {
   content: '\f0ac';
   z-index: -1;
   position: absolute;
@@ -717,6 +760,7 @@ header {
 }
 
 header .btn {
+  overflow: hidden;
   -webkit-box-shadow: 0 0 2px 0px black;
   box-shadow: 0 0 2px 0px black;
 }
@@ -957,7 +1001,7 @@ header .header-logo-load:before {
   font-family: FontAwesome;
   font-size: 25px;
   color: #efefef;
-  padding: 7px 5px;
+  padding: 12px 6px;
   text-shadow: 0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black, 0px 0px 1px black;
 }
 
@@ -1006,8 +1050,12 @@ header .header-logo-load:before {
   width: 100%;
 }
 
-#plan section {
+#plan {
   text-align: center;
+}
+
+#plan section {
+  padding-top: 120px;
 }
 
 #plan .btn {

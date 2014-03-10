@@ -365,11 +365,9 @@ html {
   min-height: 100%;
   position: relative;
   background-repeat: no-repeat;
-  background-color: rgba(25, 25, 112, 0.8);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(25, 25, 112, 0.8)), color-stop(100%, rgba(0, 206, 209, 0.8)));
   background-image: -webkit-linear-gradient(-255deg, rgba(25, 25, 112, 0.8), rgba(0, 206, 209, 0.8));
   background-image: -webkit-linear-gradient(105deg, rgba(25, 25, 112, 0.8), rgba(0, 206, 209, 0.8));
-  background-image: linear-gradient(-15deg,rgba(25, 25, 112, 0.8), rgba(0, 206, 209, 0.8));
+  background-image: linear-gradient(-15deg, rgba(25, 25, 112, 0.8), rgba(0, 206, 209, 0.8));
 }
 
 body {
@@ -425,8 +423,8 @@ body:after {
 */
 
 .btn {
-  -webkit-box-shadow: 0 0 2px 0px black, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 1px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 2px 0px black, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 2px 0px black, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 1px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 2px 0px black, inset 1px 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 1px 0 rgba(0, 0, 0, 0.4);
   border-radius: 1px;
   cursor: pointer;
   -webkit-backface-visibility: hidden;
@@ -474,8 +472,6 @@ section {
 }
 
 section .btn {
-  -webkit-box-shadow: 0 1px 3px 0px black, inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 3px 0px black, inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   height: 40px;
   line-height: 40px;
@@ -728,7 +724,8 @@ header .btn {
 header:hover {
   /* 	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); 
         			filter: gray; 
-        			filter: grayscale(100%); */
+        			filter: grayscale(100%); 
+        			filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'blur\' x=\'0\' y=\'0\'>  <feGaussianBlur in=\'SourceGraphic\' stdDeviation="15" />  </filter></svg>#grayscale"); */
 }
 
 header .logo-style,

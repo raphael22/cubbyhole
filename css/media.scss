@@ -22,21 +22,27 @@
 		.mw641{display: none; }	
 
 		#header-logo-container{
-			left:35% !important;
+			margin-left:0px !important;
+			left: 40px !important;
 		}	
+		.header-min{
+			#menu{
+				top: 40px !important;
+			}
+		}
 		#menu{
 			position: fixed;
 			z-index: 3;
 			width: 210px;
 			height: auto;
 			left: -210px;
-			top: 67px;
+			top: 100px;
 			opacity: 0;
 			padding: 5px 5px;
-			border:1px solid;
 			border-radius:2px;
-			@include linear-gradient(-10deg,darken($c,5%),darken($c,25%));		
-			@include transition(left .5s .2s,opacity .6s .2s);
+			box-shadow:0 0 2px 0px black;
+			@include radial-gradient(top,white,$c,darken($c,5%) 99%);		
+			@include transition(top .5s .2s ,left .5s .2s,opacity .6s .2s);
 			li{
 				float: none;
 				margin: 2px 5px;				
@@ -46,7 +52,7 @@
 		}
 		#nav-menu:hover ~ #menu,#menu:hover{
 			
-			left:5px !important;
+			left:0px !important;
 			opacity: 1 !important;
 			
 		}
@@ -67,6 +73,17 @@
 	@media screen and (max-width: 480px) {
 		.mw480{ display: inherit; }
 		.mw481{	display: none; }	
+	}
+
+	@media screen and (max-height: 600px) {
+		header{
+			height: 70px;	
+			top: -30px;		
+			box-shadow:0 0 2px 0px black;
+		}
+		#main-section > div > section:first-child{
+			padding-top: 60px;
+		}
 	}
 
 

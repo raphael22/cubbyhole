@@ -17,16 +17,17 @@
     <header>
       <div class='btn cursor-on mw640' id='nav-menu'></div>
       <ul id='menu'>
-        <li class='btn btn-nav' data-uri="home"><span>Home</span></li>
-        <li class='btn btn-nav' data-uri="profil"><span>Profil</span></li>
-        <li class='btn btn-nav' data-uri="plans"><span>Plans</span></li>
+        <li class='btn btn-nav' data-uri="Home"></li>
+        <li class='btn btn-nav' data-uri="Profil"></li>
+        <li class='btn btn-nav' data-uri="Plans"></li>
       </ul>
-      <div id="header-logo-container" class="btn-nav cursor-on" data-uri="home">
-        <div id="header-logo"></div>
-        <span>cubbyhole</span>
+      <div id="header-logo-container" class="btn-nav cursor-on" data-uri="Home">
+        <div id="header-logo">
+          <span>cubbyhole</span>
+        </div>
       </div>
       <div data-uri='disconnect' id='nav-exit' class="btn btn-nav"></div>
-      <div id='nav-user-info' class="btn btn-nav" data-uri="profil">
+      <div id='nav-user-info' class="btn btn-nav" data-uri="Profil">
         <div>
           <span id="nav-user-name">Nikopol</span>
         </div>

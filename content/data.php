@@ -2,13 +2,13 @@
     $page = $_GET['page'];
     switch($page){
 
-        case 'home':
+        case 'Home':
             require_once('home.php');
             break;
-        case 'profil':
+        case 'Profil':
             require_once('profil.php');
             break;
-        case 'plans':
+        case 'Plans':
             require_once('plans.php');
             break;
         default:

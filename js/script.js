@@ -1,10 +1,13 @@
 /*
 *** VAR
 */
-	var load=false;
+	var loaded=false,
+		first_load=false;
+
 	/* SELECTOR */
 	var win = $(window),
 		doc = $(document),
+		loc_origin = location;
 		html = $('html'),
 		body = $('body'),
 		header = $('header'),
@@ -12,9 +15,7 @@
 		menu = $('#menu'),
 		main_section = $('#main-section'), 
 		btn_nav = $('.btn-nav'),
-		nav_button = $('#nav-logo'),
-		nav_color_button = $('#nav-color'),
-		input_color_container = $('#input_color_container');
+		nav_button = $('#nav-logo');
 
 
 
@@ -32,16 +33,22 @@
 	win.load(function(){
 		/*GET PAGE ON RELOAD*/
 		if(location.hash!=""){
+			first_load=true;
 			var hash = location.hash.substr(1);
 			main_section.css({'opacity':'0'});
-			main_section.load('data.php?page='+hash);
+			main_section.load('content/data.php?page='+hash);
 
 			main_section.animate({opacity:1},500);
 			
 		}
 		else {
+			location.hash="Home";
+			first_load=true;
+			
+			/*var stateObj = { foo: "bar" };
+			history.pushState(stateObj, "page 2", "data.php?page=home");*/
 			main_section.css({'opacity':'0'});
-			main_section.load('data.php?page=home');
+			main_section.load('content/data.php?page=Home');
 
 			main_section.animate({opacity:1},500);
 		}
@@ -52,24 +59,29 @@
 */
 	win.on('popstate', function() {
       
-		body.css({'overflow-x':'hidden','cursor':'wait'});//hide scroll
-		//FadeOut & FadeIn de la main-section
-		$('#header-logo-container').addClass('header-logo-load');
-		main_section.animate({opacity:0.5,marginLeft:'-100%'},500,function(){ //Offset Left & opacity			
-			main_section.load('data.php?page='+location.hash.substr(1),function(){//load du data.php
-				
-				
-				window.scrollTo(0, 0);//scrolling top
-				main_section.css({'marginLeft':'100%'});//Offset Right
-				main_section.animate({opacity:1,marginLeft:0},500,function(){//Offset Right & opacity
-					body.css({'overflow-x':'auto','cursor':'auto'});//show scroll
-					$('#header-logo-container').removeClass('header-logo-load');
-					load=false;
-				});
-			});				
-		});	
+	    if(first_load==true){
+	    	
+			body.css({'overflow-x':'hidden','cursor':'wait'});//hide scroll
+			//FadeOut & FadeIn de la main-section
+			$('#header-logo-container').addClass('header-logo-load');
+			main_section.animate({opacity:0.5,marginLeft:'-100%'},500,function(){ //Offset Left & opacity			
+				main_section.load('content/data.php?page='+location.hash.substr(1),function(){//load du data.php
+					
+					
+					window.scrollTo(0, 0);//scrolling top
+					main_section.css({'marginLeft':'100%'});//Offset Right
+					main_section.animate({opacity:1,marginLeft:0},500,function(){//Offset Right & opacity
+						body.css({'overflow-x':'auto','cursor':'auto'});//show scroll
+						$('#header-logo-container').removeClass('header-logo-load');
+						loaded=false;
+					});
+				});				
+			});	
+		}
+		
 
     });
+
 /*
 *** UI CONTROL
 */
@@ -79,17 +91,17 @@
 		// data-uri du lien cible		
 		var uri = $(e.currentTarget).data('uri');
 		//Si la page demander n'est pas la page actuel
-		if(load==false){
+		if(loaded==false){
 			if(location.hash.substr(1)!=uri){
 				location.hash=uri;//set hash
-				load=true;
+				loaded=true;
 			}
 			else{
-				load=true;
+				loaded=true;
 				body.css({'overflow-x':'hidden'});//hide scroll
 				main_section.effect( "shake", 500, function(){
 					body.css({'overflow-x':'auto'});//show scroll
-					load=false;
+					loaded=false;
 				});
 			} 
 		}

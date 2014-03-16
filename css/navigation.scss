@@ -49,7 +49,7 @@
 				//@include animation(neon 3s linear infinite);
 				
 			} */
-			.logo-style{				
+			/* .logo-style{				
 				background: #000;
 				box-shadow: 0 0 1px 0;						
 				position: absolute;
@@ -129,7 +129,7 @@
 					&:before{
 						@include animation(lh4 $at $am $af);
 					}
-				}
+				} 
 				
 			}
 			.header-logo-load{
@@ -151,24 +151,102 @@
 				&:before{
 					@include animation(lh4 $at $am $af);
 				}
+			}*/
+			#header-logo-container{
+				
+				position: absolute;
+				left: 50%;
+				height: 100%;
+				padding-left: 60px;
+				padding-right: 120px;
+				margin-left: -70px;
+				overflow: hidden;
+				@include transition(left .5s);
+				&:hover{
+					#header-logo{					
+						margin-left: -20px;
+						span{
+							margin-left: 30px;
+							opacity: 1;
+						}
+						&:before{		
+							@include animation-play-state(paused);				
+						}
+						&:after{			
+							@include animation-play-state(paused);				
+						}
+					}
+				}
 			}
-			
-			
-			
-
-			
+			.header-logo-components{				
+				border-radius:50%;		
+				background: $c2;		
+				@include box-sizing(border-box);
+				backface-visibility:hidden;
+			}
+			#header-logo{							
+				@extend .header-logo-components;
+				width: 20px;
+				height: 20px;				
+				margin-top: 40px;
+				box-shadow:1px 1px 2px 1px rgba(darken($c2,40%),.5),
+						inset 1px 1px 2px 1px rgba(white,.4),
+						inset -1px -1px 4px 1px rgba(darken($c2,50%),.2),
+						2px 2px 0 9px $c,
+						2px 2px 1px 9px black,
+						3px 1px 0 30px darken($c,2%),
+						3px 1px 1px 30px black;
+				@include transition(margin-left .5s);
+				span{
+					margin-left: -20px;
+					margin-top: 2px;
+					display: inline-block;
+					opacity: 0;
+					text-transform: uppercase;
+					@include transition(opacity .5s,margin-left .5s);
+				}
+				&:before,&:after{					
+					@extend .header-logo-components;
+					content:'';
+					display: inline-block;
+					position: absolute;	
+					margin-left: 10px;								
+				}
+				&:before{					
+					width: 10px;
+					height: 10px;
+					margin-top: 5px;					
+					box-shadow:1px 1px 2px 1px rgba(darken($c2,40%),.5),
+						inset 1px 1px 2px 0px rgba(white,.4),
+						inset -1px -1px 4px 0px rgba(darken($c2,50%),.2);	
+					@include animation(rev40 3s .2s infinite linear);				
+				}
+				&:after{					
+					width: 5px;
+					height: 5px;						
+					margin-top: -10px;					
+					box-shadow:0px 0px 1px 1px rgba(darken($c2,40%),.5),
+						inset 1px 1px 1px 0px rgba(white,.4),
+						inset -1px -1px 2px 0px rgba(darken($c2,50%),.2);
+					@include animation(rev20 2s .2s infinite linear);				
+				}				
+			}
+			.header-logo-load{
+				#header-logo{
+					&:before{		
+						@include animation-play-state(paused);				
+					}
+					&:after{			
+						@include animation-play-state(paused);				
+					}
+				}
+			}
 			
 		}
 		.header-min{
 			height: 70px;	
 			top: -30px;		
 			box-shadow:0 0 2px 0px black;
-			#header-logo{
-				height: 60px !important;
-				&:before,&:after{
-					height: 50px !important;
-				}
-			}
 		}
 		
 		#nav-exit{
@@ -264,10 +342,19 @@
 				line-height: 100px;
 				height: 100%;
 				@include box-sizing(border-box);
-				span{				
+				&:before{
+					content:attr(data-uri);
+					width: 100%;
+					font-family: 'Raleway', sans-serif; 
+					font-weight: 100;
+					text-shadow:0 0 1px;
+					text-align: center;
+					display: inline-block;					
+				}
+				/* span{				
 					width: 100%;
 					text-align: center;	
-					display: inline-block;
-				}		
+					display: inline-block;					
+				} */		
 			}
 		}

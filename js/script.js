@@ -24,9 +24,7 @@ function popupTrigger(text,color){
 	popup.text(text);			
 	popup.addClass('popup-'+color);
 	setTimeout(function(){
-		popup.animate({top:0,opacity:1},1000,myEasing);
-		body.animate({paddingTop:50},1000,myEasing);
-		header.animate({marginTop:50},1000,myEasing);
+		popup.animate({top:50,opacity:1},1000,myEasing);
 	},1000);
 }
 
@@ -43,7 +41,7 @@ function popupTrigger(text,color){
 
 	win.load(function(){
 		/*GET PAGE ON RELOAD*/
-		if(location.hash!=""){
+		/*if(location.hash!=""){
 			first_load=true;
 			var hash = location.hash.substr(1);
 			main_section.css({'opacity':'0'});
@@ -55,15 +53,12 @@ function popupTrigger(text,color){
 		else {
 			location.hash="Home";
 			first_load=true;
-			
-			/*var stateObj = { foo: "bar" };
-			history.pushState(stateObj, "page 2", "data.php?page=home");*/
 			main_section.css({'opacity':'0'});
 			main_section.load('content/data.php?page=Home');
 
 			main_section.animate({opacity:1},500);
 		}
-		localStorage.setItem("new_user",true);
+		localStorage.setItem("new_user",true);*/
 		//localStorage.removeItem("new_user");
 		//ALERT
 		if(localStorage.getItem("new_user")==null){
@@ -77,7 +72,7 @@ function popupTrigger(text,color){
 
 	win.on('popstate', function() {
       
-	    if(first_load==true){
+	    /*if(first_load==true){
 	    	
 			body.css({'overflow-x':'hidden','cursor':'wait'});//hide scroll
 			//FadeOut & FadeIn de la main-section
@@ -95,7 +90,7 @@ function popupTrigger(text,color){
 					});
 				});				
 			});	
-		}
+		}*/
 		
 
     });
@@ -110,8 +105,9 @@ function popupTrigger(text,color){
 		var uri = $(e.currentTarget).data('uri');
 		//Si la page demander n'est pas la page actuel
 		if(loaded==false){
-			if(location.hash.substr(1)!=uri){
-				location.hash=uri;//set hash
+			if(location.search!='?page='+uri){
+				location.search='?page='+uri;//set hash
+				console.log(location.search);
 				loaded=true;
 			}
 			else{
@@ -137,9 +133,7 @@ function popupTrigger(text,color){
 
 	//ALERT TOGGLE
 	popup.click(function(){
-		popup.animate({top:-50,opacity:0},1000,myEasing);
-		body.animate({paddingTop:0},1000,myEasing);
-		header.animate({marginTop:0},1000,myEasing);
+		popup.animate({top:0,opacity:0},1000,myEasing);
 	});
 	
 

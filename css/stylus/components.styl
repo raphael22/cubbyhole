@@ -13,20 +13,23 @@
 					inset -1px -1px 1px 0 rgba(black,.1);
 		
 
-.popup
-	position  fixed
+.alert
+	position relative
 	width 100%
 	height 50px
 	line-height 50px
-	top -50px
-	z-index 999	
+	z-index 1	
 	text-align center
-.popup-red
+	opacity 0
+	transition opacity 1s
+.alert-on
+	opacity 1
+.alert-red
 	background radial-gradient(top,lighten(red,10%),red,darken(red,20%))
 	box-shadow 0 0 2px 0,
 				inset 1px 1px 6px 1px darken(red,30%),
 				inset -1px -1px 6px 1px lighten(red,30%)
-.popup-green
+.alert-green
 	background radial-gradient(top,lighten(green,10%),green,darken(green,20%))
 	box-shadow 0 0 2px 0,
 				inset 1px 1px 6px 1px darken(green,30%),
@@ -34,16 +37,14 @@
 
 
 #main-section		
-	width  100%
-	> div			
-		max-width 1000px
-		width 100%
-		padding 0 20px
-		margin 0 auto
-		box-sizing border-box
-		> section:first-child
-			padding-top  120px
-			transition padding-top .5s .2s
+	max-width 1000px
+	width 100%
+	padding 0 20px
+	margin 0 auto
+	box-sizing border-box
+	padding-top 100px
+	transition padding-top .5s .2s
+			
 			
 		
 	

@@ -1,10 +1,10 @@
 <link href='css/page/home.css' rel='stylesheet' type='text/css'>
-<div>
+
 	<section id="home">
 		<h2 class="title">Welcome on CubbyHole</h2>
 		<h4 class="btn btn-nav" data-uri="Plans">Sign up</h4>
-		<h4 class="btn btn-nav">Login</h4>
-
+		<h4 class="btn btn-nav" data-uri="Login">Login</h4>
+<!-- 
 <ul>
 	<li>
 		<label for=nom>email</label>
@@ -16,17 +16,16 @@
 	</li>
 	<li>
 		<label for="inpChocType">Plan</label>
-		<input type="text" id="inpChocType" list="chocType">
-		<datalist id="chocType">
+		<input type="text" list="chocType">
+		<datalist>
 		  <option value="white" />
 		  <option value="milk" />
 		  <option value="dark" />
 		</datalist>
 	</li>
 	
-</ul>
+</ul> -->
 		
 
 		
 	</section>
-</div>

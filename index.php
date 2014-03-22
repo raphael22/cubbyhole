@@ -5,15 +5,13 @@
     <meta charset='utf-8'>
     <meta name=viewport content="width=device-width, initial-scale=1">
     <link href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Condiment' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-    <link href="http://fonts.googleapis.com/css?family=Kavoon&subset=latin" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
     <link href='css/normalize.css' rel='stylesheet' type='text/css'>
     <link href='css/style.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
+    <div class="popup"></div>
     <header>
       <div class='btn cursor-on mw640' id='nav-menu'></div>
       <ul id='menu'>
@@ -22,9 +20,15 @@
         <li class='btn btn-nav' data-uri="Plans"></li>
       </ul>
       <div id="header-logo-container" class="btn-nav cursor-on" data-uri="Home">
-        <div id="header-logo">
-          <span>cubbyhole</span>
-        </div>
+          <span>C</span>
+          <span>U</span>
+          <span>B</span>
+          <span>B</span>
+          <span>Y</span>
+          <span>H</span>
+          <span>O</span>
+          <span>L</span>
+          <span>E</span>
       </div>
       <div data-uri='disconnect' id='nav-exit' class="btn btn-nav"></div>
       <div id='nav-user-info' class="btn btn-nav" data-uri="Profil">

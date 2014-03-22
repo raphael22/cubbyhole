@@ -1,0 +1,10 @@
+#plan {
+  text-align: center;
+}
+#plan section {
+  padding-top: 120px;
+}
+#plan .btn {
+  height: 40px;
+  line-height: 40px;
+}

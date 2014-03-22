@@ -1,0 +1,101 @@
+
+.mw480,
+.mw481
+	transition opacity .5s 
+
+/* 1024p */
+@media screen and (min-width: 1025px) 
+	.mw1024
+		display none 	
+
+@media screen and (max-width: 1024px) 
+	.mw1024
+		display inherit 	
+
+
+/* 640p */
+@media screen and (min-width: 769px) 
+	.mw640
+		display none 	
+	.mw641
+		display inherit 	
+	
+
+@media screen and (max-width: 768px) 
+	.mw640
+		display inherit 
+	.mw641
+		display none 	
+
+	#header-logo-container
+		margin-left 0px !important
+		left 134px !important
+		
+	.header-min	#menu
+		top 70px !important
+	
+	#menu
+		position absolute
+		z-index 3
+		width 210px
+		height auto
+		left -@width
+		top 100px
+		opacity 0
+		padding 5px 5px
+		border-radius 2px
+		box-shadow0 0 2px 0px black
+		background radial-gradient(top,white,c,darken(c,5%) 99%)		
+		transition top .5s .2s ,left .5s .2s,opacity .6s .2s
+		li
+			float none
+			margin 2px 5px
+			height 40px
+			line-height 40px
+		
+	
+	#nav-menu:hover ~ #menu,
+	#menu:hover
+		left 0px !important
+		opacity 1 !important
+		
+	
+	#nav-user-info span
+		width 20px		
+	
+	#nav-user-name:after
+		opacity0
+		transition opacity 0s
+	
+
+
+/* 480p */
+@media screen and (min-width: 481px) 
+	.mw480
+		display none 
+	.mw481
+		display inherit  		
+
+@media screen and (max-width: 480px) 
+	.mw480
+		display inherit 
+	.mw481
+		display none 	
+
+
+@media screen and (max-height: 600px) 
+	header
+		height 70px	
+		top -30px		
+		box-shadow0 0 2px 0px black
+	#header-logo-container
+		height 70px
+	#main-section > div > section:first-child
+		padding-top 60px
+	
+
+
+
+
+				
+			

@@ -1,0 +1,15 @@
+#home {
+  text-align: center;
+  height: 950px;
+}
+#home h2 {
+  margin-bottom: 20px;
+}
+#home h4 {
+  max-width: 200px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+#home img {
+  width: 100%;
+}

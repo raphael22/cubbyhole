@@ -1,3 +1,4 @@
+<link href='css/page/plans.css' rel='stylesheet' type='text/css'>
 <div>
 	<div id="plan">
 		<section class="third-row">

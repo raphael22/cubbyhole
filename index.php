@@ -6,7 +6,7 @@ require_once('library/entity/User.class.php');
 require_once("layout/header.php");
 
 
-    
+if(isset($_GET['page'])){
     switch($_GET['page']){
 
         case 'Home':
@@ -24,6 +24,8 @@ require_once("layout/header.php");
         default:
             require_once('content/home.php');
     }
+}
+else require_once('content/home.php');
 
 require_once("layout/footer.php");
 

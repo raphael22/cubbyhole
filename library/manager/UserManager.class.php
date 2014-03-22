@@ -14,10 +14,15 @@ class UserManager {
 			$query->bindValue(':mdp', $user->getMdp());
 			$query->bindValue(':role', $user->getRole());
 			$query->execute();
+			$_SESSION["userEmail"] = $user->getEmail();
+        	$_SESSION["userRole"] = $user->getRole();
 			echo "<div class=\"alert alert-on alert-green\"> Vous êtes bien inscrit, bienvenue sur CubbyHole</div>";
-		} else {
+		} 
+		else {
 			echo "<div class=\"alert alert-on alert-red\"> Cet email existe déjà.</div>";
 		}
+
+        
 	}
 
 	public function connectUser(User $user, PDO $db)

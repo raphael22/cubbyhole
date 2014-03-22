@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,19 +30,19 @@
           <span>E</span>
       </div>
       <?php 
-            if(isset($_SESSION["userEmail"])) {
+        if(isset($_SESSION["userEmail"])) {
       ?>
-      <div data-uri='disconnect' id='nav-exit' class="btn btn-nav"></div>
-      <div id='nav-user-info' class="btn btn-nav" data-uri="Profil">
-        <div>
-          <span id="nav-user-name">Nikopol</span>
-        </div>
-        <div >
-          <span id="nav-user-stockage">100Gb</span>
-        </div>
-      </div>  
+        <div data-uri='Disconnect' id='nav-exit' class="btn btn-nav"></div>
+        <div data-uri="Profil" id='nav-user-info' class="btn btn-nav">
+          <div>
+            <span id="nav-user-name">Nikopol</span>
+          </div>
+          <div >
+            <span id="nav-user-stockage">100Gb</span>
+          </div>
+        </div>  
       <?php 
-            }
+        }
       ?>
     </header>
     

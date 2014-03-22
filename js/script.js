@@ -32,7 +32,6 @@ function popupTrigger(text,color){
 // DOCUMENT READY
 
 	doc.ready(function(){
-		
 	});
 
 

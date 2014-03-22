@@ -1,7 +1,4 @@
 <?php
-$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-$server = $url["host"];
 	try{
 		$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 
@@ -13,6 +10,6 @@ $server = $url["host"];
 	}
 	catch (Exception $e){
 		die('Erreur : ' . $e->getMessage());
-		echo "<script>console.log(".$server.");</script>"
+		echo "<script>console.log(".$server.");</script>";
 	}
 ?>

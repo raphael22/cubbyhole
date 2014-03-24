@@ -1,3 +1,4 @@
+lh = 50px
 header
 	position fixed
 	top 0
@@ -11,49 +12,40 @@ header
 	transition top .5s .2s, height .5s .2s, box-shadow .5s			
 	.btn
 		overflow hidden
-		box-shadow	0 0 2px 0px black
+		box-shadow	0 0 2px 0
+	h4
+		@extend .text-btn
+		position relative
+		float right
+		height 100%
+		line-height lh
+		padding 0 20px 
+		
 #header-logo-container
 	position absolute
 	z-index 3
 	height 100px
-	line-height @height 
+	line-height lh 
 	left 50%
 	padding 0 10px 
 	transform translateX(-50%)
 	text-align center
 	overflow hidden
 	transition height .5s .2s
+	  transition 1s all
 	&:hover
-		&:before,&:after
-			height 200%
-		&:before
-			margin-left 0
-			transform rotate(90deg) translateX(-30px)
-		&:after
-			transform rotate(-90deg) translateX(25px)
+		span
+			letter-spacing 2px 
 		for row in 1..9
 			span:nth-child({row})		
-				animation-play-state paused 
-	&:before,&:after
-		content ""
-		position absolute
-		display inline-block
-		width 100%
-		height 100%
-		left 0
-		bottom 0
-		transition .5s all
-		pointer-events none
-	&:before	
-		margin-left -3px	
-		border-right 1px solid black
-	&:after		
-		border-left 1px solid black
+				//animation-play-state paused
+		
 	span
 		font-size 22px
+		letter-spacing -2px 
 		display inline-block
 		backface-visibility hidden
-		transition 1s all		
+		transition 1s all	ease-in-out
 	for row in 1..9
 		span:nth-child({row})			
 			animation ty1 3s 0s+(row/10) ease-in-out infinite
@@ -63,8 +55,7 @@ header
 				animation-play-state paused !important
 				
 .header-min
-	height 70px	
-	top -30px		
+	height 50px	
 	box-shadow0 0 2px 0px black
 	#header-logo-container
 		height 70px
@@ -82,7 +73,7 @@ header
 		width 85px
 		float left
 		margin 0 10px
-		line-height 100px
+		line-height lh
 		text-align center
 		text-shadow 0 0 1px black
 		overflow hidden
@@ -98,17 +89,6 @@ header
 	content '\f0a0' 
 
 
-#nav-user-name:after
-	content ''
-	position absolute
-	display inline-block
-	width 1px
-	height 20px
-	margin-top 40px
-	margin-left 15px
-	background rgba(black,.4)
-	box-shadow 0 0 1px 0 rgba(black,.4)
-	transition opacity .5s .5s
 	
 	
 
@@ -125,7 +105,7 @@ header
 		height 100px
 		width 40px
 		color c	
-		line-height 100px
+		line-height lh
 		text-align center
 		stroke 0,1px,black
 
@@ -135,7 +115,7 @@ header
 	width 40px
 	height 100%
 	float left			
-	line-height 75px		
+	line-height lh		
 	&:before
 		content '\f085'
 		position relative
@@ -143,7 +123,8 @@ header
 		font-family FontAwesome
 		font-size 25px
 		color c
-		padding 12px 6px	
+		padding 12px 6px
+		padding-top 0
 		stroke 0,1px,black
 				
 	
@@ -153,25 +134,21 @@ header
 	float left
 	height 100%
 	box-sizing border-box
-	li					
+	li		
+		@extend .text-btn			
 		float left
 		margin-right 1px		
 		min-width 80px
-		line-height 100px
+		line-height lh
 		height 100%
-		box-sizing border-box
-		&:before
-			content attr(data-uri)
-			width 100%
-			font-family 'Raleway', sans-serif 
-			font-weight 100
-			text-shadow 0 0 1px
-			text-align center
-			display inline-block					
-		
-		/* span				
-			width 100%
-			text-align center	
-			display inline-block					
-		 */		
-	
+		box-sizing border-box		
+		&:after
+			content ""
+			display table
+			position relative
+			width 60%
+			left 20%
+			height 2px
+			margin-top -18px
+			c2=rgba(darken(c2,30%),.5)
+			box-shadow 0 5px 1px 0 c2

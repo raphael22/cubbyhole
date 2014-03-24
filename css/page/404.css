@@ -3,7 +3,13 @@
   margin-top: 100px !important;
   height: 300px;
   z-index: 1;
+  background: -webkit-linear-gradient(80deg, rgba(194,40,24,0.9), rgba(229,64,47,0.8));
+  background: -moz-linear-gradient(80deg, rgba(194,40,24,0.9), rgba(229,64,47,0.8));
+  background: -o-linear-gradient(80deg, rgba(194,40,24,0.9), rgba(229,64,47,0.8));
+  background: -ms-linear-gradient(80deg, rgba(194,40,24,0.9), rgba(229,64,47,0.8));
   background: linear-gradient(10deg, rgba(194,40,24,0.9), rgba(229,64,47,0.8));
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 #page_404 .btn {

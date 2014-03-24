@@ -1,3 +1,8 @@
+@import 'nib'
+
+//VARS
+c = #efefef
+c2 = #2c3e50
 
 .mw480,
 .mw481
@@ -44,7 +49,7 @@
 		opacity 0
 		padding 5px 5px
 		border-radius 2px
-		box-shadow0 0 2px 0px black
+		box-shadow 0 0 2px 0px black
 		background radial-gradient(top,white,c,darken(c,5%) 99%)		
 		transition top .5s .2s ,left .5s .2s,opacity .6s .2s
 		li
@@ -66,6 +71,9 @@
 	#nav-user-name:after
 		opacity0
 		transition opacity 0s
+	form
+		max-width 100% 
+		margin-left 0
 	
 
 
@@ -85,13 +93,12 @@
 
 @media screen and (max-height: 600px) 
 	header
-		height 70px	
-		top -30px		
+		height 50px	
 		box-shadow0 0 2px 0px black
-	#header-logo-container
-		height 70px
-	#main-section > div > section:first-child
-		padding-top 60px
+		#menu
+			top 50px
+	#main-section 
+		padding-top 50px
 	
 
 

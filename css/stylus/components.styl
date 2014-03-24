@@ -1,3 +1,5 @@
+button
+	line-height 0!important 
 .btn	
 	box-shadow:	0 0 2px 0px black,
 				inset 1px 1px 1px 0 rgba(white,.6),
@@ -10,8 +12,16 @@
 		transform(translate3D(0,1px,0))
 		box-shadow : 0 0 2px 0px black,
 					inset 1px 1px 1px 0 rgba(white,.1),
-					inset -1px -1px 1px 0 rgba(black,.1);
-		
+					inset -1px -1px 1px 0 rgba(black,.1)
+.text-btn
+	&:before
+		content attr(data-uri)
+		width 100%
+		font-family 'Raleway' sans-serif 
+		font-weight 100
+		text-shadow 0 0 1px
+		text-align center
+		display inline-block	
 
 .alert
 	position relative
@@ -20,10 +30,7 @@
 	line-height 50px
 	z-index 1	
 	text-align center
-	opacity 0
-	transition opacity 1s
-.alert-on
-	opacity 1
+	animation fadeIn 1s forwards
 .alert-red
 	background radial-gradient(top,lighten(red,10%),red,darken(red,20%))
 	box-shadow 0 0 2px 0,
@@ -43,7 +50,7 @@
 	margin 0 auto
 	box-sizing border-box
 	padding-top 100px
-	transition padding-top .5s .2s
+	animation fadeIn 1s 
 			
 			
 		
@@ -63,7 +70,7 @@ section
 		border-radius 4px				
 		height 40px
 		line-height 40px
-		border 3px solid darken(rgba(c2,.7),20%)			
+		border 3px solid darken(rgba(c2,.7),0%)			
 		&:hover
 			border-color darken(rgba(c2,.9),20%)
 			

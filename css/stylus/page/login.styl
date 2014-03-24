@@ -1,0 +1,47 @@
+@import 'nib'
+c2 = #2c3e50
+#main-section
+	padding 0 !important
+	margin 0 
+section
+	position absolute
+	height 100% 
+	text-align center
+form
+	max-width 50%
+	margin-left 25% 
+	transition all .5s
+	h1
+		margin-bottom 20px
+	span
+		&:before
+			content attr(data-holder)
+			position absolute
+			height 40px
+			width 100px 
+			line-height 40px
+			color #FFF 
+			font-family 'Raleway' sans-serif 
+			font-weight 100
+			text-shadow 0 0 1px
+			text-align center
+			background c2 
+			border-radius 4px 0 0 4px
+			padding 0 5px 
+			display inline-block
+			box-sizing border-box
+	input
+		width 100% 
+		margin-bottom 10px
+		border-radius 4px
+		height 40px
+		padding-left 100px
+		box-sizing border-box
+		transition all .5s linear
+		&:hover
+			box-shadow 0 0 1px 0px c2
+		&:focus
+			box-shadow 0 0 3px 0px c2,0 0 6px 0px c2
+			outline none		
+	.btn
+		width 100% 

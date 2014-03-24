@@ -1,3 +1,12 @@
+header {
+  height: 100px;
+}
+#header-logo-container {
+  height: 100px;
+}
+#main-section {
+  padding-top: 100px;
+}
 #home {
   text-align: center;
   height: 950px;

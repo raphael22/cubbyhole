@@ -2,8 +2,7 @@
 
 	<section id="home">
 		<h2 class="title">Welcome on CubbyHole</h2>
-		<h4 class="btn btn-nav" data-uri="Plans">Sign up</h4>
-		<h4 class="btn btn-nav" data-uri="Login">Login</h4>
+		
 <!-- 
 <ul>
 	<li>

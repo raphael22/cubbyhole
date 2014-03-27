@@ -28,7 +28,10 @@
         <form action="?page=Sign" method="post" >
             <span data-holder="Username"><input type="text" name="name" /></span><br />
             <span data-holder="Email"><input type="email" name="email" /></span><br />
-            <span data-holder="Password"><input type="password" name="mdp" /></span><br />
+            <span data-holder="Password"><input type="password" name="mdp" /></span><br />            
+            <input type="radio" name="Plans" value="1">Light - 0$/mo <br/>
+            <input type="radio" name="Plans" value="2">Medium - 9.99$/mo <br/>
+            <input type="radio" name="Plans" value="3">Heavy - 19.99$/mo <br/>
             <button class="btn" id="connexion" type="submit">Sign In</button>
         </form>
     </section>

@@ -1,16 +1,4 @@
 <header>
-  <?php 
-    if(isset($_SESSION["userRole"])) {
-  ?>
-  <div class='btn cursor-on mw640' id='nav-menu'></div>
-  <ul id='menu'>
-    <li class='btn btn-nav' data-uri="Home"></li>
-    <li class='btn btn-nav' data-uri="Profil"></li>
-    <li class='btn btn-nav' data-uri="Plans"></li>
-  </ul>
-  <?php 
-    }
-  ?>
   <div id="header-logo-container" class="btn-nav cursor-on" data-uri="Home">
       <span>C</span>
       <span>U</span>
@@ -28,14 +16,17 @@
              
   ?>
     <div data-uri='Disconnect' id='nav-exit' class="btn btn-nav"></div>
-    <div data-uri="Profil" id='nav-user-info' class="btn btn-nav">
-      <div>
-        <span id="nav-user-name"><?php $userManager->getUserName($_SESSION["userEmail"],$db); ?></span>
-      </div>
-      <div >
-        <span id="nav-user-stockage">100Gb</span>
-      </div>
-    </div>  
+    <div class='btn cursor-on mw640' id='nav-menu'></div>
+    <ul id='menu'>
+      <li class='btn btn-nav' data-uri="Home"></li>
+      <li class='btn btn-nav' data-uri="Profil"></li>
+      <li class='btn btn-nav' data-uri="Plans"></li>
+    </ul>
+    <!-- 
+     <div data-uri="Profil" id='nav-user-info' class="btn btn-nav">
+         <span id="nav-user-name"><?php $userManager->getUserName($_SESSION["userEmail"],$db); ?></span>
+         <span id="nav-user-stockage">100Gb</span>
+     </div>  --> 
   <?php 
     } else {
   ?>

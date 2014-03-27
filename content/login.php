@@ -15,9 +15,11 @@
     }
     if(isset($_SESSION["userRole"])) {
 ?>
-    <div class="alert alert-green">
-        <p>Welcome ! - You're now log in</p>
-    </div>
+<section>
+    <div class="alert alert-green">Welcome Back ! - You're log in</div>
+
+    <div class="btn btn-nav" data-uri="Home">Back to Home</div>
+</section>
 <?php 
     }
     else{

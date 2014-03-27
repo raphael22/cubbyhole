@@ -1,30 +1,27 @@
 <link href='css/page/home.css' rel='stylesheet' type='text/css'>
 
-	<section id="home">
-		<h2 class="title">Welcome on CubbyHole</h2>
+<?php 
+if(isset($_SESSION["userRole"])) { 
+	$userManager = new UserManager();  
+	if(isset($_SESSION["userRole"])) { 
+?>
 		
-<!-- 
-<ul>
-	<li>
-		<label for=nom>email</label>
-        <input id=nom name=nom type=text placeholder="Prénom et nom" required autofocus>
-	</li>
-	<li>
-		<label for=nom>password</label>
-        <input id=nom name=nom type=text placeholder="Prénom et nom" required>
-	</li>
-	<li>
-		<label for="inpChocType">Plan</label>
-		<input type="text" list="chocType">
-		<datalist>
-		  <option value="white" />
-		  <option value="milk" />
-		  <option value="dark" />
-		</datalist>
-	</li>
-	
-</ul> -->
-		
+	<h2>Welcome Back <?php $userManager->getUserName($_SESSION["userEmail"],$db); ?></h2>
 
-		
+
+
+
+
+
+<?php 
+	}
+}
+else {
+?>
+	<h2 class="title">Welcome on CubbyHole</h2>	
+	<section id="home">	
+		<div class="btn btn-nav" data-uri="Sign">Sign for Free Now</div>
 	</section>
+<?php
+}
+?>

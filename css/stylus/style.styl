@@ -10,9 +10,9 @@ green = #2ecc71
 //MIXINS
 stroke(to,tb,tc)
 	text-shadow to to tb tc,
-				-to to tb tc,
-				-to -to tb tc,
-				to -to tb tc
+				-(to) to tb tc,
+				-(to) -(to) tb tc,
+				to -(to) tb tc
 transY(ty,name)
 	@keyframes name
 		0%,30%,100%
@@ -117,7 +117,7 @@ body
 	width 100%
 	margin0
 	padding 0
-	padding-bottom 50px
+	padding-bottom 45px
 	display inline-block
 	transition transform 1s .5s ease-in-out	
 	&:before

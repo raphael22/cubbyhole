@@ -1,16 +1,13 @@
 @import 'nib'
 c2 = #2c3e50
-#main-section
-	padding 0 !important
-	margin 0 
 section
-	position absolute
-	height 100% 
+	background none !important
+	box-shadow none 
 	text-align center
 form
 	max-width 50%
 	margin-left 25% 
-	transition all .5s
+	transition max-width .5s,margin-left .5s
 	h1
 		margin-bottom 20px
 	span
@@ -18,30 +15,41 @@ form
 			content attr(data-holder)
 			position absolute
 			height 40px
-			width 100px 
+			width 100px
 			line-height 40px
 			color #FFF 
 			font-family 'Raleway' sans-serif 
 			font-weight 100
 			text-shadow 0 0 1px
 			text-align center
-			background c2 
+			background c2
 			border-radius 4px 0 0 4px
 			padding 0 5px 
 			display inline-block
-			box-sizing border-box
-	input
+			box-sizing border-box			
+	input[type=email],
+	input[type=password],
+	input[type=text]
 		width 100% 
 		margin-bottom 10px
 		border-radius 4px
 		height 40px
-		padding-left 100px
+		font-size 150% 
+		padding-left 105px
 		box-sizing border-box
-		transition all .5s linear
+		transition box-shadow .5s linear
 		&:hover
 			box-shadow 0 0 1px 0px c2
 		&:focus
-			box-shadow 0 0 3px 0px c2,0 0 6px 0px c2
-			outline none		
+			box-shadow 0 0 3px 0px white,
+						0 0 6px 0px white,
+						0 0 10px 0px white
+			outline none
+			
+	input[type=radio]
+		width auto
+		height auto
+		float left
+		clear both		
 	.btn
 		width 100% 

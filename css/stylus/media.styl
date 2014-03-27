@@ -31,27 +31,23 @@ c2 = #2c3e50
 		display inherit 
 	.mw641
 		display none 	
-
-	#header-logo-container
-		margin-left 0px !important
-		left 134px !important
 		
 	.header-min	#menu
-		top 70px !important
+		top 50px !important
 	
 	#menu
 		position absolute
 		z-index 3
 		width 210px
 		height auto
-		left -@width
+		right -@width
 		top 100px
 		opacity 0
 		padding 5px 5px
 		border-radius 2px
 		box-shadow 0 0 2px 0px black
 		background radial-gradient(top,white,c,darken(c,5%) 99%)		
-		transition top .5s .2s ,left .5s .2s,opacity .6s .2s
+		transition top .5s .2s ,right .5s .2s,opacity .6s .2s
 		li
 			float none
 			margin 2px 5px
@@ -61,7 +57,7 @@ c2 = #2c3e50
 	
 	#nav-menu:hover ~ #menu,
 	#menu:hover
-		left 0px !important
+		right 0px !important
 		opacity 1 !important
 		
 	
@@ -91,7 +87,7 @@ c2 = #2c3e50
 		display none 	
 
 
-@media screen and (max-height: 600px) 
+@media screen and (max-height: 600px) and (max-width: 768px) 
 	header
 		height 50px	
 		box-shadow0 0 2px 0px black

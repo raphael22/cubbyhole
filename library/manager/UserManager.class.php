@@ -18,10 +18,9 @@ class UserManager {
         	$_SESSION["userRole"] = $user->getRole();
         	$_SESSION["userEmail"] = $user->getEmail();
         	header('Location: index.php?page=Home');
-        	echo "<div class='alert alert-green'> Vous êtes connecté.</div>";
 		} 
 		else {
-			echo "<div class='alert alert-red'> Cet email existe déjà.</div>";
+			echo "<div class='alert alert-red'>This email is already register</div>";
 		}        
 	}
 
@@ -38,9 +37,8 @@ class UserManager {
 			$_SESSION["userEmail"] = $data[2];
 			$_SESSION["userRole"] = $data[4];
 			header('Location: index.php?page=Home');
-			echo "<div class='alert alert-green'> Vous êtes connecté.</div>";
 		} else {
-			echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
+			echo "<div class='alert alert-red'>please check your email and password</div>";
 		}
 	}
 

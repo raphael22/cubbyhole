@@ -1,9 +1,17 @@
 	
 
   	<footer>
-      <div id="debug-css" class="btn">Debug</div>
+      <?php 
+      if(isset($_SESSION["userRole"])) { 
+      	if($_SESSION["userRole"]=="admin"){
+      ?>
+      	<div id="debug-css" class="btn">Debug</div>
+      <?php
+      	}
+      } 
+      ?>
     </footer>
 
-    <div id="footer-earth"></div>
+
     
 	

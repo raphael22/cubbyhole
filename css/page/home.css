@@ -6,13 +6,10 @@ header {
 }
 #main-section {
   padding-top: 100px;
-}
-#home {
   text-align: center;
-  height: 950px;
 }
-#home h2 {
-  margin-bottom: 20px;
+#main-section h2 {
+  margin: 50px 0;
 }
 #home h4 {
   max-width: 200px;

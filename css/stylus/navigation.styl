@@ -1,7 +1,8 @@
-lh = 50px
+lh = 40px
 header
 	position fixed
 	top 0
+	opacity 0.9
 	width 100%
 	height 100px
 	border-bottom 1px solid darken(c,40%)
@@ -12,7 +13,10 @@ header
 	transition top .5s .2s, height .5s .2s, box-shadow .5s			
 	.btn
 		overflow hidden
-		box-shadow	0 0 2px 0
+		height 100%
+		border-radius 1px	
+		box-sizing border-box
+		 
 	h4
 		@extend .text-btn
 		position relative
@@ -22,37 +26,46 @@ header
 		padding 0 20px 
 		
 #header-logo-container
-	position absolute
+	position relative
 	z-index 3
+	float left
 	height 100px
-	line-height lh 
-	left 50%
 	padding 0 10px 
-	transform translateX(-50%)
 	text-align center
 	overflow hidden
 	transition height .5s .2s
-	  transition 1s all
 	&:hover
-		span
-			letter-spacing 2px 
-		for row in 1..9
-			span:nth-child({row})		
-				//animation-play-state paused
+		/*span
+			&:nth-child(n)
+				opacity 1
+				margin-left 0
+				transform none		
+				animation-play-state running*/
+		
 		
 	span
+		height 100%
+		line-height lh 
 		font-size 22px
 		letter-spacing -2px 
 		display inline-block
 		backface-visibility hidden
-		transition 1s all	ease-in-out
-	for row in 1..9
-		span:nth-child({row})			
-			animation ty1 3s 0s+(row/10) ease-in-out infinite
-.header-logo-load
-	for row in 1..9
-			span:nth-child({row})		
-				animation-play-state paused !important
+		transition 1s .2s all	ease-in-out
+		animation none !important
+		for row in 1..9
+			&:nth-child({row})		
+				animation ty1 3s 1s+(row/10) ease-in-out infinite !important
+		/*&:nth-child(n)
+			opacity 0		
+			//animation ty1 3s 0s+(row/10) ease-in-out infinite
+		&:nth-child(1)
+			font-size 40px
+			opacity 1
+			margin-left 40px
+		&:nth-child(6)			
+			font-size 40px
+			opacity 1
+			margin-left -70px*/
 				
 .header-min
 	height 50px	
@@ -65,12 +78,9 @@ header
 //USER INFO
 #nav-user-info
 	position relative
-	height 100%
 	float right
 	margin-right 1px
-	display inline-flex
 	span
-		width 85px
 		float left
 		margin 0 10px
 		line-height lh
@@ -94,7 +104,6 @@ header
 
 #nav-exit
 	width 40px
-	height 100%
 	float right				
 	&:before
 		content '\f011'
@@ -102,7 +111,6 @@ header
 		display inline-block
 		font-family FontAwesome
 		font-size 25px
-		height 100px
 		width 40px
 		color c	
 		line-height lh
@@ -113,8 +121,7 @@ header
 #nav-menu
 	position relative
 	width 40px
-	height 100%
-	float left			
+	float right			
 	line-height lh		
 	&:before
 		content '\f085'
@@ -125,13 +132,13 @@ header
 		color c
 		padding 12px 6px
 		padding-top 0
-		stroke 0,1px,black
+		stroke(0,1px,black)
 				
 	
 
 #menu
 	position relative
-	float left
+	float right
 	height 100%
 	box-sizing border-box
 	li		
@@ -140,15 +147,3 @@ header
 		margin-right 1px		
 		min-width 80px
 		line-height lh
-		height 100%
-		box-sizing border-box		
-		&:after
-			content ""
-			display table
-			position relative
-			width 60%
-			left 20%
-			height 2px
-			margin-top -18px
-			c2=rgba(darken(c2,30%),.5)
-			box-shadow 0 5px 1px 0 c2

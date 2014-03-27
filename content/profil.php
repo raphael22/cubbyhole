@@ -4,12 +4,23 @@
 		<!-- <div class="meter">
 			<span></span>
 		</div> -->
-		<?php $userManager = new UserManager();  ?>
+		<?php 
+		$userManager = new UserManager();  
+		if(isset($_SESSION["userRole"])) { 
+		?>
 		<div id="user-info">
-			<span>Username : <?php $userManager->getUserName($_SESSION["userEmail"],$db); ?></span><br>
-			<span>Email : <?php echo $_SESSION["userEmail"]; ?></span><br>
-			<span>Status : <?php echo $_SESSION["userRole"]; ?></span>
+			<p>Username : <?php $userManager->getUserName($_SESSION["userEmail"],$db); ?></p>
+			<p>Email : <?php echo $_SESSION["userEmail"]; ?></p>
+			<p>Status : <?php echo $_SESSION["userRole"]; ?></p>
 		</div>
+		<?php
+		}
+		else {
+		?>
+		<div class="alert alert-red">Sign Up or Login</div>
+		<?php
+		}
+		?>
 		
 	</section>
 	

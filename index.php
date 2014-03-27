@@ -56,9 +56,13 @@ if(isset($_GET['page'])){
 else require_once("layout/footer.php");
 
 ?>
+    <div id="footer-earth"></div>
     <link href='css/media.css' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src='js/jquery-ui.js' type='text/javascript'></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.5/TweenMax.min.js"></script>
+    <script src="js/jquery.gsap.min.js"></script>
     <script src='js/script.js' type='text/javascript'></script>
   </body>
 </html>

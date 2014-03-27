@@ -33,19 +33,15 @@
   .mw641 {
     display: none;
   }
-  #header-logo-container {
-    margin-left: 0px !important;
-    left: 134px !important;
-  }
   .header-min #menu {
-    top: 70px !important;
+    top: 50px !important;
   }
   #menu {
     position: absolute;
     z-index: 3;
     width: 210px;
     height: auto;
-    left: -210px;
+    right: -210px;
     top: 100px;
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -60,11 +56,11 @@
     background: -o-radial-gradient(top, #fff, #efefef, #e3e3e3 99%);
     background: -ms-radial-gradient(top, #fff, #efefef, #e3e3e3 99%);
     background: radial-gradient(to bottom, #fff, #efefef, #e3e3e3 99%);
-    -webkit-transition: top 0.5s 0.2s, left 0.5s 0.2s, opacity 0.6s 0.2s;
-    -moz-transition: top 0.5s 0.2s, left 0.5s 0.2s, opacity 0.6s 0.2s;
-    -o-transition: top 0.5s 0.2s, left 0.5s 0.2s, opacity 0.6s 0.2s;
-    -ms-transition: top 0.5s 0.2s, left 0.5s 0.2s, opacity 0.6s 0.2s;
-    transition: top 0.5s 0.2s, left 0.5s 0.2s, opacity 0.6s 0.2s;
+    -webkit-transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
+    -moz-transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
+    -o-transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
+    -ms-transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
+    transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
   }
   #menu li {
     float: none;
@@ -74,7 +70,7 @@
   }
   #nav-menu:hover ~ #menu,
   #menu:hover {
-    left: 0px !important;
+    right: 0px !important;
     opacity: 1 !important;
     -ms-filter: none;
     filter: none;
@@ -112,7 +108,7 @@ opacity0
     display: none;
   }
 }
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 600px) and (max-width: 768px) {
   header {
     height: 50px;
     box-shadow0: 0 2px 0px #000;

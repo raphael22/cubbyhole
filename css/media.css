@@ -34,7 +34,7 @@
     display: none;
   }
   .header-min #menu {
-    top: 50px !important;
+    top: 50px;
   }
   #menu {
     position: absolute;
@@ -56,17 +56,18 @@
     background: -o-radial-gradient(top, #fff, #efefef, #e3e3e3 99%);
     background: -ms-radial-gradient(top, #fff, #efefef, #e3e3e3 99%);
     background: radial-gradient(to bottom, #fff, #efefef, #e3e3e3 99%);
-    -webkit-transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
-    -moz-transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
-    -o-transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
-    -ms-transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
-    transition: top 0.5s 0.2s, right 0.5s 0.2s, opacity 0.6s 0.2s;
+    -webkit-transition: top 0.5s 0.8s, right 0.5s 0.8s, opacity 0.6s 0.8s;
+    -moz-transition: top 0.5s 0.8s, right 0.5s 0.8s, opacity 0.6s 0.8s;
+    -o-transition: top 0.5s 0.8s, right 0.5s 0.8s, opacity 0.6s 0.8s;
+    -ms-transition: top 0.5s 0.8s, right 0.5s 0.8s, opacity 0.6s 0.8s;
+    transition: top 0.5s 0.8s, right 0.5s 0.8s, opacity 0.6s 0.8s;
   }
   #menu li {
     float: none;
-    margin: 2px 5px;
+    margin: 5px 5px;
     height: 40px;
     line-height: 40px;
+    border: 2px solid #2c3e50;
   }
   #nav-menu:hover ~ #menu,
   #menu:hover {
@@ -74,6 +75,11 @@
     opacity: 1 !important;
     -ms-filter: none;
     filter: none;
+    -webkit-transition: top 0.5s 0.4s, right 0.5s 0.4s, opacity 0.6s 0.4s;
+    -moz-transition: top 0.5s 0.4s, right 0.5s 0.4s, opacity 0.6s 0.4s;
+    -o-transition: top 0.5s 0.4s, right 0.5s 0.4s, opacity 0.6s 0.4s;
+    -ms-transition: top 0.5s 0.4s, right 0.5s 0.4s, opacity 0.6s 0.4s;
+    transition: top 0.5s 0.4s, right 0.5s 0.4s, opacity 0.6s 0.4s;
   }
   #nav-user-info span {
     width: 20px;
@@ -107,11 +113,21 @@ opacity0
   .mw481 {
     display: none;
   }
+  .btn:after {
+    display: none !important;
+  }
+  .ul-icon li {
+    width: 100% !important;
+    float: none;
+  }
 }
 @media screen and (max-height: 600px) and (max-width: 768px) {
   header {
     height: 50px;
-    box-shadow0: 0 2px 0px #000;
+    padding-top: 5px;
+    border-width: 2px;
+    -webkit-box-shadow: 0 0 2px 0px #000;
+    box-shadow: 0 0 2px 0px #000;
   }
   header #menu {
     top: 50px;

@@ -1,5 +1,5 @@
 <?php
-$local=false;
+$local=true;
 if($local==false){
 	try{
 		$url=parse_url(getenv("CLEARDB_DATABASE_URL"));

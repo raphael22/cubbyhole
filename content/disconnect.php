@@ -3,7 +3,7 @@
 if(isset($_SESSION["userEmail"])) {
     $userManager = new UserManager();
     $userManager->disconnectUser();
-    header("location:index.php");
+    header("location:index.php?page=Home");
 } 
 else {
 ?>

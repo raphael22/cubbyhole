@@ -2,18 +2,64 @@
 home_h = 100px
 header
 	height home_h
-#header-logo-container
-	height home_h
+	
 #main-section
 	padding-top home_h
-	text-align center	
-	h2
+	> h1,> h2
 		margin 50px 0
-#home	
+		text-align center
+		font-weight bold 
+section	
+	h1,h2,h3
+		text-align center
 	h4		
 		max-width 200px
 		margin 0 auto
 		margin-bottom 10px	
 	img
 		width 100%
-	
+.ul-icon
+	width 100% 
+	display inline-block
+	padding 20px 0 
+	li		
+		float left
+		text-align center
+		&:before
+			position relative
+			font-family FontAwesome 
+			display inline-block
+			font-size 10vmin
+			width 100%
+			text-align center 	
+#home-service
+	li
+		width 25% 
+		&:nth-child(1):before
+			content "\f0ed" 
+		&:nth-child(2):before
+			content "\f070"
+		&:nth-child(3):before
+			content "\f0c0"
+		&:nth-child(4):before
+			content "\f15a"	
+
+#home-device
+	li
+		width 33.333% 
+		&:nth-child(1):before
+			content "\f108" //DESKTOP
+		&:nth-child(2):before
+			content "\f109" //LAPTOP
+		&:nth-child(3):before
+			content "\f10b" //MOBILE
+
+#home-mobile
+	li
+		width 33.333% 
+		&:nth-child(1):before
+			content "\f17b" //ANDROID
+		&:nth-child(2):before
+			content "\f179" //APPLE
+		&:nth-child(3):before
+			content "\f17a" //WINDOWS

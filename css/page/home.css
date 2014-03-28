@@ -1,21 +1,81 @@
 header {
   height: 100px;
 }
-#header-logo-container {
-  height: 100px;
-}
 #main-section {
   padding-top: 100px;
+}
+#main-section > h1,
+#main-section > h2 {
+  margin: 50px 0;
+  text-align: center;
+  font-weight: bold;
+}
+section h1,
+section h2,
+section h3 {
   text-align: center;
 }
-#main-section h2 {
-  margin: 50px 0;
-}
-#home h4 {
+section h4 {
   max-width: 200px;
   margin: 0 auto;
   margin-bottom: 10px;
 }
-#home img {
+section img {
   width: 100%;
+}
+.ul-icon {
+  width: 100%;
+  display: inline-block;
+  padding: 20px 0;
+}
+.ul-icon li {
+  float: left;
+  text-align: center;
+}
+.ul-icon li:before {
+  position: relative;
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size: 10vmin;
+  width: 100%;
+  text-align: center;
+}
+#home-service li {
+  width: 25%;
+}
+#home-service li:nth-child(1):before {
+  content: "\f0ed";
+}
+#home-service li:nth-child(2):before {
+  content: "\f070";
+}
+#home-service li:nth-child(3):before {
+  content: "\f0c0";
+}
+#home-service li:nth-child(4):before {
+  content: "\f15a";
+}
+#home-device li {
+  width: 33.333%;
+}
+#home-device li:nth-child(1):before {
+  content: "\f108";
+}
+#home-device li:nth-child(2):before {
+  content: "\f109";
+}
+#home-device li:nth-child(3):before {
+  content: "\f10b";
+}
+#home-mobile li {
+  width: 33.333%;
+}
+#home-mobile li:nth-child(1):before {
+  content: "\f17b";
+}
+#home-mobile li:nth-child(2):before {
+  content: "\f179";
+}
+#home-mobile li:nth-child(3):before {
+  content: "\f17a";
 }

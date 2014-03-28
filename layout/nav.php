@@ -15,23 +15,25 @@
       $userManager = new UserManager();    
              
   ?>
-    <div data-uri='Disconnect' id='nav-exit' class="btn btn-nav"></div>
     <div class='btn cursor-on mw640' id='nav-menu'></div>
     <ul id='menu'>
-      <li class='btn btn-nav' data-uri="Home"></li>
-      <li class='btn btn-nav' data-uri="Profil"></li>
-      <li class='btn btn-nav' data-uri="Plans"></li>
+      <li class='btn btn-nav' data-uri="Home">Home</li>
+      <li class='btn btn-nav' data-uri="Profil">Profil</li>
+      <li class='btn btn-nav' data-uri="Plans">Our Plans</li>
+      <li class='btn btn-nav' data-uri="Disconnect">Log out</li>
     </ul>
-    <!-- 
-     <div data-uri="Profil" id='nav-user-info' class="btn btn-nav">
-         <span id="nav-user-name"><?php $userManager->getUserName($_SESSION["userEmail"],$db); ?></span>
-         <span id="nav-user-stockage">100Gb</span>
-     </div>  --> 
   <?php 
     } else {
   ?>
-    <h4 class="btn btn-nav" data-uri="Sign"></h4>
-    <h4 class="btn btn-nav" data-uri="Login"></h4>
+    <div class='btn cursor-on mw640' id='nav-menu'></div>
+    <ul id='menu'>
+      <li class='btn btn-nav' data-uri="Home">Home</li>
+      <li class='btn btn-nav' data-uri="Plans">Our Plans</li>
+      <li class="btn btn-nav" data-uri="Sign">Sign Up</li>
+      <li class="btn btn-nav" data-uri="Login">Log In</li>
+    </ul>
+    
+
   <?php
     }
   ?>

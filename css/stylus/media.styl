@@ -30,11 +30,10 @@ c2 = #2c3e50
 	.mw640
 		display inherit 
 	.mw641
-		display none 	
-		
-	.header-min	#menu
-		top 50px !important
-	
+		display none
+	.header-min
+		#menu
+			top 50px	
 	#menu
 		position absolute
 		z-index 3
@@ -47,18 +46,22 @@ c2 = #2c3e50
 		border-radius 2px
 		box-shadow 0 0 2px 0px black
 		background radial-gradient(top,white,c,darken(c,5%) 99%)		
-		transition top .5s .2s ,right .5s .2s,opacity .6s .2s
+		transition top .5s 0.8s ,right .5s 0.8s,opacity .6s 0.8s
 		li
 			float none
-			margin 2px 5px
+			margin 5px 5px
 			height 40px
 			line-height 40px
+			border 2px solid c2
 		
 	
 	#nav-menu:hover ~ #menu,
 	#menu:hover
 		right 0px !important
 		opacity 1 !important
+		transition top .5s 0.4s ,right .5s 0.4s,opacity .6s 0.4s
+
+		
 		
 	
 	#nav-user-info span
@@ -84,13 +87,22 @@ c2 = #2c3e50
 	.mw480
 		display inherit 
 	.mw481
-		display none 	
+		display none 
+	.btn:after
+		display none !important
+	.ul-icon
+		li
+			width 100% !important
+			float none 
+
 
 
 @media screen and (max-height: 600px) and (max-width: 768px) 
 	header
 		height 50px	
-		box-shadow0 0 2px 0px black
+		padding-top 5px
+		border-width 2px 
+		box-shadow 0 0 2px 0px black
 		#menu
 			top 50px
 	#main-section 

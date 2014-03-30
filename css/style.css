@@ -746,11 +746,6 @@ header h4 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: margin-top 0.5s 0.2s;
-  -moz-transition: margin-top 0.5s 0.2s;
-  -o-transition: margin-top 0.5s 0.2s;
-  -ms-transition: margin-top 0.5s 0.2s;
-  transition: margin-top 0.5s 0.2s;
 }
 #menu li {
   margin: 0 5px;
@@ -758,6 +753,14 @@ header h4 {
   float: left;
   min-width: 80px;
   line-height: 40px;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  -ms-transition: background 0.5s;
+  transition: background 0.5s;
+}
+#menu li:active {
+  background: #2c3e50;
 }
 @-moz-keyframes revolution {
   0% {

@@ -17,10 +17,10 @@
   ?>
     <div class='btn cursor-on mw640' id='nav-menu'></div>
     <ul id='menu'>
-      <li class='btn btn-nav' data-uri="Home">Home</li>
-      <li class='btn btn-nav' data-uri="Profil">Profil</li>
-      <li class='btn btn-nav' data-uri="Plans">Our Plans</li>
-      <li class='btn btn-nav' data-uri="Disconnect">Log out</li>
+      <li class='btn btn-nav' data-icon="&#xe02a;" data-uri="Home">Home</li>
+      <li class='btn btn-nav' data-icon="&#xe007;" data-uri="Profil">Profil</li>
+      <li class='btn btn-nav' data-icon="&#xe021;" data-uri="Files">My Files</li>
+      <li class='btn btn-nav' data-icon="&#xe00d;" data-uri="Disconnect">Log out</li>
     </ul>
   <?php 
     } else {

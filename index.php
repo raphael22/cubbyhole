@@ -40,7 +40,7 @@ if(isset($_GET['page'])){
             require_once('content/disconnect.php');
             break;
         default:
-            require_once('content/home.php');
+            require_once('content/404.php');
     }
 }
 else require_once('content/home.php');

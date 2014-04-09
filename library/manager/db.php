@@ -2,10 +2,9 @@
 $local=false;
 if($local==false){
 	try{
-		$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
-	    $server = $url["host"];
-	    echo "<script>console.log( 'Debug Objects: " . $server . "' );</script>";
-		$db = new PDO('mysql:host='.$server.';dbname=heroku_7d0cbf23e0e57a1', 'b50637b0a0e28d', '9ce391b5');
+		/*$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
+	    $server = $url["host"];*/
+		$db = new PDO('mysql:host=us-cdbr-east-05.cleardb.net;dbname=heroku_7d0cbf23e0e57a1', 'b50637b0a0e28d', '9ce391b5');
 	}
 	catch (Exception $e){
 		die("Error : " . $e->getMessage());
@@ -13,7 +12,7 @@ if($local==false){
 }
 else{
 	try{
-		$db = new PDO('mysql:host=localhost;dbname=cubbyhole', 'root', '');
+		$db = new PDO('mysql:host=localhost;dbname=localdbcubbyhole', 'root', '');
 	}
 	catch (Exception $e){
 		die("Error : " . $e->getMessage());

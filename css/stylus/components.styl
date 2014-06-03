@@ -43,11 +43,22 @@ button
 				inset 1px 1px 6px 1px darken(green,30%),
 				inset -1px -1px 6px 1px lighten(green,30%)
 
-
+.debug-css
+	outline 1px red solid
+	*
+		outline 1px red solid	
+	*:before,*:after
+		outline 1px yellow solid
+		
+canvas
+	position fixed
+	z-index -1
+	bottom 0
+	left 0
 #main-section		
-	//max-width 1000px
+	max-width 1000px
 	width 100%
-	//padding 0 20px
+	padding 0 20px
 	margin 0 auto
 	box-sizing border-box
 	padding-top 100px

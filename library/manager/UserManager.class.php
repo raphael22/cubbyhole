@@ -9,15 +9,19 @@ class UserManager {
 		$data = $query->fetch();
 
 		if(empty($data)) {
-			$query = $db->prepare('INSERT INTO users (name,email, mdp, role) VALUES (:name, :email, :mdp, :role)');
+			$query = $db->prepare('INSERT INTO users (name,email, mdp,role) VALUES (:name, :email, :mdp, :role)');
 			$query->bindValue(':name', $user->getName());
 			$query->bindValue(':email', $user->getEmail());
 			$query->bindValue(':mdp', $user->getMdp());
 			$query->bindValue(':role', $user->getRole());
 			$query->execute();
+			$data = $query->fetch();
+
+
+        	$_SESSION["userId"] = $data[0];
         	$_SESSION["userRole"] = $user->getRole();
-        	$_SESSION["userEmail"] = $user->getEmail();
-        	header('Location: index.php?page=Home');
+        	echo $data;
+        	//header('Location: index.php?page=Home');
 		} 
 		else {
 			echo "<div class='alert alert-red'>This email is already register</div>";
@@ -34,18 +38,19 @@ class UserManager {
 
 		if(!empty($data)) {
 
-			$_SESSION["userEmail"] = $data[2];
+			$_SESSION["userId"] = $data[0];
 			$_SESSION["userRole"] = $data[4];
 			header('Location: index.php?page=Home');
+
 		} else {
 			echo "<div class='alert alert-red'>please check your email and password</div>";
 		}
 	}
 
-	public function getUserName($userEmail, PDO $db) {
+	public function getUserName($userId, PDO $db) {
 
-		$query = $db->prepare('SELECT * FROM users WHERE email = :email');
-		$query->bindValue(':email', $userEmail);
+		$query = $db->prepare('SELECT * FROM users WHERE id = :id');
+		$query->bindValue(':id', $userId);
 		$query->execute();
 		$data = $query->fetch();
 
@@ -55,11 +60,28 @@ class UserManager {
 			//echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
 		}
 	}
+
+	public function getUserMail($userId, PDO $db) {
+
+		$query = $db->prepare('SELECT * FROM users WHERE id = :id');
+		$query->bindValue(':id', $userId);
+		$query->execute();
+		$data = $query->fetch();
+
+		if(!empty($data)) {
+			echo $data[2];
+		} else {
+			//echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
+		}
+	}
+
+	
 	
 	public function disconnectUser() {
 
-		unset($_SESSION["userEmail"]);
+		unset($_SESSION["userId"]);
 		unset($_SESSION["userRole"]);
+		unset($_SESSION["userEmail"]);
 		session_destroy();
 	}
 }

@@ -39,6 +39,8 @@ function popupTrigger(text,color){
 // WINDOW LOAD
 
 	win.load(function(){
+		var particle = new Particles();
+		particle.init(); 
 		/*GET PAGE ON RELOAD*/
 		/*if(location.hash!=""){
 			first_load=true;

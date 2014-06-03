@@ -27,10 +27,10 @@
   ?>
     <div class='btn cursor-on mw640' id='nav-menu'></div>
     <ul id='menu'>
-      <li class='btn btn-nav' data-uri="Home">Home</li>
-      <li class='btn btn-nav' data-uri="Plans">Our Plans</li>
-      <li class="btn btn-nav" data-uri="Sign">Sign Up</li>
-      <li class="btn btn-nav" data-uri="Login">Log In</li>
+      <li class='btn btn-nav' data-icon="&#xe02a;" data-uri="Home">Home</li>
+      <li class='btn btn-nav' data-icon="&#xe018;" data-uri="Plans">Our Plans</li>
+      <li class="btn btn-nav" data-icon="&#xe01a;" data-uri="Sign">Sign Up</li>
+      <li class="btn btn-nav" data-icon="&#xe00d;" data-uri="Login">Log In</li>
     </ul>
     
 

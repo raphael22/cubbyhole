@@ -1,6 +1,6 @@
 <?php 
 
-if(isset($_SESSION["userEmail"])) {
+if(isset($_SESSION["userId"])) {
     $userManager = new UserManager();
     $userManager->disconnectUser();
     header("location:index.php?page=Home");

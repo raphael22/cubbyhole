@@ -8,7 +8,7 @@ if(isset($_SESSION["userRole"])) {
 		
 	<h2><?php 
 		echo Welcome.' ';
-		$userManager->getUserName($_SESSION["userEmail"],$db); 
+		$userManager->getUserName($_SESSION["userId"],$db); 
 	?></h2>
 	<section>
 		<h2>Update 0.1</h2>

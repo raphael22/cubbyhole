@@ -207,7 +207,7 @@ html {
 }
 body {
   width: 100%;
-margin0
+  margin: 0;
   padding: 0;
   padding-bottom: 50px;
   display: inline-block;
@@ -251,16 +251,6 @@ body:after {
   -moz-background-size: 100% 3px;
   background-size: 100% 3px;
   pointer-events: none;
-}
-.debug-css {
-  outline: 1px #e74c3c solid;
-}
-.debug-css * {
-  outline: 1px #e74c3c solid;
-}
-.debug-css *:before,
-.debug-css *:after {
-  outline: 1px #ff0 solid;
 }
 button {
   line-height: 0 !important;
@@ -331,8 +321,26 @@ button {
   -webkit-box-shadow: 0 0 2px 0, inset 1px 1px 6px 1px #208f4f, inset -1px -1px 6px 1px #6ade9b;
   box-shadow: 0 0 2px 0, inset 1px 1px 6px 1px #208f4f, inset -1px -1px 6px 1px #6ade9b;
 }
+.debug-css {
+  outline: 1px #e74c3c solid;
+}
+.debug-css * {
+  outline: 1px #e74c3c solid;
+}
+.debug-css *:before,
+.debug-css *:after {
+  outline: 1px #ff0 solid;
+}
+canvas {
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+}
 #main-section {
+  max-width: 1000px;
   width: 100%;
+  padding: 0 20px;
   margin: 0 auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

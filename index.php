@@ -2,6 +2,7 @@
 require_once('library/manager/db.php');
 require_once('library/manager/UserManager.class.php');
 require_once('library/entity/User.class.php');
+require_once('library/entity/File.class.php');
 require_once("content/lang/lang.php");
 
 require_once("layout/header.php");
@@ -29,6 +30,9 @@ if(isset($_GET['page'])){
             break;
         case 'Plans':
             require_once('content/plans.php');
+            break;
+        case 'Files':
+            require_once('content/files.php');
             break;
         case 'Sign':
             require_once('content/sign.php');
@@ -58,9 +62,11 @@ else require_once("layout/footer.php");
 
 ?>
     <div id="footer-earth"></div>
+    <canvas id="canvas"></canvas>
     <link href='css/media.css' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src='js/jquery-ui.js' type='text/javascript'></script>
-    <script src='js/script.js' type='text/javascript'></script>
+    <script src='js/jquery-ui.js' type='text/javascript'></script>      
+    <script src='js/canvas.js' type='text/javascript'></script>
+    <script src='js/script.js' type='text/javascript'></script>  
   </body>
 </html>

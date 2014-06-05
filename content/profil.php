@@ -6,16 +6,16 @@
 	</div> -->
 	<?php	
 
-require_once('library/entity/User.class.php');
-require_once('library/manager/UserManager.class.php');
+	require_once('library/entity/User.class.php');
+	require_once('library/manager/UserManager.class.php');
 	 
 		if(isset($_SESSION["userRole"])) {
 			$userManager = new UserManager(); 
 	?>
 		<div class="center">
 			<p>User Rank : <?php echo $_SESSION["userId"]; ?></p>
-			<p>Username : <?php $userManager->getUserName($_SESSION["userId"],$db); ?></p>
-			<p>Email : <?php $userManager->getUserMail($_SESSION["userId"],$db); ?></p>
+			<p>Username : <?php echo $userManager->getUserName($_SESSION["userId"],$db); ?></p>
+			<p>Email : <?php echo $userManager->getUserMail($_SESSION["userId"],$db); ?></p>
 			<p>Status : <?php echo $_SESSION["userRole"]; ?></p>
 		</div>
 	<?php

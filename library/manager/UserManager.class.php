@@ -52,9 +52,9 @@ class UserManager {
 		$data = $query->fetch();
 
 		if(!empty($data)) {
-			echo $data[1];
+			return $data[1];
 		} else {
-			//echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
+			return "empty";
 		}
 	}
 
@@ -66,9 +66,9 @@ class UserManager {
 		$data = $query->fetch();
 
 		if(!empty($data)) {
-			echo $data[2];
+			return $data[2];
 		} else {
-			//echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
+			return "empty";
 		}
 	}
 
@@ -82,11 +82,11 @@ class UserManager {
 		if(!empty($data)) {
 			echo $data[3];
 		} else {
-			//echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
+			return "empty";
 		}
 	}
 
-	public function getAllUser(PDO $db) {
+	public function getAllUsers(PDO $db) {
 
 		$query = $db->prepare('SELECT * FROM users');
 		$query->execute();

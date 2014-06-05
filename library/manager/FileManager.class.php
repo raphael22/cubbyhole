@@ -33,14 +33,23 @@ class FileManager {
 			foreach ($data as $file) {
 				echo $file[2] . ' - ' . $file[3] . '<br>';
 			}
-
-
-
-		   
 			
 		} 
 		else {
 			echo "<div class='alert'>You don't have file yet</div>";
+		}      
+	}
+
+	public function getAllFiles(PDO $db) {
+
+		$query = $db->prepare('SELECT * FROM files');
+		$query->execute();
+		$data = $query->fetchAll(PDO::FETCH_CLASS);
+		if(!empty($data)) {
+			return $data;
+		} 
+		else {
+			return "Error : Empty Row";
 		}      
 	}
 

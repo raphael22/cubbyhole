@@ -2,7 +2,7 @@
 require_once('library/manager/db.php');
 require_once("content/lang/lang.php");
 
-if(isset($_GET['query'])){
+if(isset($_GET['Get'])){
 
     require_once('library/query.php');
 }

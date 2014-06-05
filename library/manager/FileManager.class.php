@@ -4,23 +4,43 @@ class FileManager {
 	public function recordFile(File $file, PDO $db) {
 
 		$query = $db->prepare('SELECT * FROM files WHERE userId = :userId AND name = :name');
-		$query->bindValue(':userId', $file->getUserId);
+		$query->bindValue(':userId', $file->getFileUserId());
 		$query->bindValue(':name', $file->getFileName());
 		$query->execute();
 		$data = $query->fetch();
 
 		if(empty($data)) {
 			$query = $db->prepare('INSERT INTO files (userId,name,size) VALUES (:userId, :name, :size)');
+			$query->bindValue(':userId', $file->getFileUserId());
 			$query->bindValue(':name', $file->getFileName());
-			$query->bindValue(':email', $file->getFileSize());
-			$query->bindValue(':mdp', $file->getMdp());
+			$query->bindValue(':size', $file->getFileSize());
 			$query->execute();
-        	$_SESSION["userRole"] = $user->getRole();
-        	$_SESSION["userEmail"] = $user->getEmail();
-        	header('Location: index.php?page=Home');
+			
 		} 
 		else {
-			echo "<div class='alert alert-red'>This file already record</div>";
+			echo "<div class='alert alert-red'>This file is already record</div>";
+		}      
+	}
+
+	public function getFiles($userId, PDO $db) {
+
+		$query = $db->prepare('SELECT * FROM files WHERE userId = :userId');
+		$query->bindValue(':userId', $userId);
+		$query->execute();
+		$data = $query->fetchAll();
+		if(!empty($data)) {
+
+			foreach ($data as $file) {
+				echo $file[2] . ' - ' . $file[3] . '<br>';
+			}
+
+
+
+		   
+			
+		} 
+		else {
+			echo "<div class='alert'>You don't have file yet</div>";
 		}      
 	}
 

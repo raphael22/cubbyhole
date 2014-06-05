@@ -11,9 +11,7 @@
       <span>E</span>
   </div>
   <?php 
-    if(isset($_SESSION["userRole"])) {
-      $userManager = new UserManager();    
-             
+    if(isset($_SESSION["userRole"])) {             
   ?>
     <div class='btn cursor-on mw640' id='nav-menu'></div>
     <ul id='menu'>

@@ -17,11 +17,8 @@ class UserManager {
 			$query->execute();
 			$data = $query->fetch();
 
-
-        	$_SESSION["userId"] = $data[0];
-        	$_SESSION["userRole"] = $user->getRole();
-        	echo $data;
-        	//header('Location: index.php?page=Home');
+			$userManager = new UserManager();
+        	$userManager->connectUser($user,$db);
 		} 
 		else {
 			echo "<div class='alert alert-red'>This email is already register</div>";
@@ -75,13 +72,37 @@ class UserManager {
 		}
 	}
 
-	
+	public function getUserPassword($userId, PDO $db) {
+
+		$query = $db->prepare('SELECT * FROM users WHERE id = :id');
+		$query->bindValue(':id', $userId);
+		$query->execute();
+		$data = $query->fetch();
+
+		if(!empty($data)) {
+			echo $data[3];
+		} else {
+			//echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
+		}
+	}
+
+	public function getAllUser(PDO $db) {
+
+		$query = $db->prepare('SELECT * FROM users');
+		$query->execute();
+		$data = $query->fetchAll(PDO::FETCH_CLASS);
+
+		if(!empty($data)) {
+			return $data;
+		} else {
+			//echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
+		}
+	}
 	
 	public function disconnectUser() {
 
 		unset($_SESSION["userId"]);
 		unset($_SESSION["userRole"]);
-		unset($_SESSION["userEmail"]);
 		session_destroy();
 	}
 }

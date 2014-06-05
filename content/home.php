@@ -2,6 +2,8 @@
 
 <?php 
 if(isset($_SESSION["userRole"])) { 
+	require_once('library/entity/User.class.php');
+	require_once('library/manager/UserManager.class.php');
 	$userManager = new UserManager();  
 	if(isset($_SESSION["userRole"])) { 
 ?>

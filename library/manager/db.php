@@ -1,5 +1,5 @@
 <?php
-$local=false;
+$local=true;
 if($local==false){
 	try{
 		/*$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -13,6 +13,7 @@ if($local==false){
 else{
 	try{
 		$db = new PDO('mysql:host=localhost;dbname=localdbcubbyhole', 'root', '');
+		// 10.14.78.69
 	}
 	catch (Exception $e){
 		die("Error : " . $e->getMessage());

@@ -290,6 +290,12 @@ button {
   text-align: center;
   display: inline-block;
 }
+.center {
+  text-align: center;
+}
+.center p {
+  padding: 10px 0;
+}
 .alert {
   position: relative;
   width: 100%;

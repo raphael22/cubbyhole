@@ -1,5 +1,9 @@
 <link href='css/page/login.css' rel='stylesheet' type='text/css'>
 <?php
+
+require_once('library/entity/User.class.php');
+require_once('library/manager/UserManager.class.php');
+
     if(isset($_POST['email']) && isset($_POST['mdp'])) {
         if(!empty($_POST['email']) && !empty($_POST['mdp'])) {
             $mdp = sha1($_POST['mdp']);

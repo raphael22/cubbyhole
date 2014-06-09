@@ -2,7 +2,7 @@
 require_once('library/manager/db.php');
 require_once("content/lang/lang.php");
 
-if(isset($_GET['Get'])){
+if(isset($_GET['Get']) || isset($_GET['Create']) || isset($_GET['Update']) || isset($_GET['Delete'])){
 
     require_once('library/query.php');
 }
@@ -53,7 +53,7 @@ else require_once('content/home.php');
 
 ?>
     </div>
-    <?php
+<?php
 
     if(isset($_GET['page'])){
         if($page!='Sign' && $page!='Login'){
@@ -61,6 +61,18 @@ else require_once('content/home.php');
         }
     }
     else require_once("layout/footer.php");
+?>
+    <div id="footer-earth"></div>
+    <canvas id="canvas"></canvas>
+    
+    <link href='css/media.css' rel='stylesheet' type='text/css'>
+   
+    <script src='js/jquery-ui.js' type='text/javascript'></script>      
+    <script src='js/canvas.js' type='text/javascript'></script>
+    <script src='js/script.js' type='text/javascript'></script>  
+  </body>
+</html>
+<?php
 }
 ?>
         

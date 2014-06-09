@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 09 Avril 2014 à 20:31
+-- Généré le: Sam 07 Juin 2014 à 00:26
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -25,24 +25,34 @@ USE `localdbcubbyhole`;
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `files`
+--
+
+CREATE TABLE IF NOT EXISTS `files` (
+  `id` int(150) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `size` varchar(250) NOT NULL,
+  `isFolder` tinyint(1) NOT NULL,
+  `folder` varchar(100) NOT NULL,
+  `paths` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `idusers` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
   `role` varchar(25) NOT NULL,
-  PRIMARY KEY (`idusers`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Contenu de la table `users`
---
-
-INSERT INTO `users` (`idusers`, `name`, `email`, `mdp`, `role`) VALUES
-(1, 'a', 'a@a', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8', 'admin');
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -11,10 +11,10 @@ require_once('library/manager/UserManager.class.php');
             $user = new User();
             $user->setEmail($_POST['email']);
             $user->setMdp($mdp);
-            $userManager->connectUser($user, $db);
+            $userManager->connectUser($user, $db, false);
             //header("location:index.php?page=Home");
         } else {
-        echo '<div class="alert alert-red">Erreur : Veuillez remplir tous les champs.</div>';
+        echo '<div class="alert alert-red">Error : Fill all fields.</div>';
         }
     }
     if(isset($_SESSION["userRole"])) {
@@ -34,6 +34,7 @@ require_once('library/manager/UserManager.class.php');
             <span data-holder="Password"><input type="password" data-holder="Password" name="mdp" /></span><br />
             <button class="btn" id="connexion" type="submit">Log In</button>
         </form>
+        <div class="btn btn-nav" data-uri='Home'>Back to Home</div>
     </section>
 <?php 
     } 

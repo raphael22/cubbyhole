@@ -3,43 +3,83 @@
 class FileManager {
 	public function recordFile(File $file, PDO $db) {
 
-		$query = $db->prepare('SELECT * FROM files WHERE userId = :userId AND name = :name');
+		$query = $db->prepare('SELECT * FROM files WHERE userId = :userId AND name = :name AND isFolder = :isFolder AND paths = :paths');
 		$query->bindValue(':userId', $file->getFileUserId());
 		$query->bindValue(':name', $file->getFileName());
+		$query->bindValue(':isFolder', $file->getFileIsFolder());
+		$query->bindValue(':paths', $file->getFilePaths());
 		$query->execute();
 		$data = $query->fetch();
 
 		if(empty($data)) {
-			$query = $db->prepare('INSERT INTO files (userId,name,size) VALUES (:userId, :name, :size)');
+			$query = $db->prepare('INSERT INTO files (userId,name,size,isFolder,folder,paths) VALUES (:userId, :name, :size, :isFolder, :folder, :paths)');
 			$query->bindValue(':userId', $file->getFileUserId());
 			$query->bindValue(':name', $file->getFileName());
 			$query->bindValue(':size', $file->getFileSize());
+			$query->bindValue(':isFolder', $file->getFileIsFolder());
+			$query->bindValue(':folder', $file->getFileFolder());
+			$query->bindValue(':paths', $file->getFilePaths());
 			$query->execute();
+			if($file->getFileIsFolder()==1){
+				mkdir('C:\wamp\www\B3\supcubby\uploads/'.$file->getFileUserId() .'/'. $file->getFilePaths(),7777,true);
+			}
+			else header('Location: index.php?page=Files&Folder='.$file->getFileFolder());
 			
 		} 
 		else {
-			echo "<div class='alert alert-red'>This file is already record</div>";
+			$Alert="<div class='alert alert-red'>This record already exist</div>";
+			return $Alert;
 		}      
 	}
 
-	public function getFiles($userId, PDO $db) {
+	public function getFiles($userId,$folder, PDO $db) {
 
-		$query = $db->prepare('SELECT * FROM files WHERE userId = :userId');
+		$query = $db->prepare('SELECT * FROM files WHERE userId = :userId AND folder = :folder AND isFolder = :isFolder');
 		$query->bindValue(':userId', $userId);
+		$query->bindValue(':folder', $folder);
+		$query->bindValue(':isFolder', 0);
 		$query->execute();
 		$data = $query->fetchAll();
 		if(!empty($data)) {
-
+			$files="";
 			foreach ($data as $file) {
-				echo $file[2] . ' - ' . $file[3] . '<br>';
+				$files.= '<div class="file" data-link="'. $file[6] .'"><a href="C:\wamp\www\B3\supcubby\uploads\\'.$file[1].'\\'.$file[6].'">' . $file[2] . '</a><span>' . $file[3] . '</span></div>';
 			}
 			
 		} 
 		else {
-			echo "<div class='alert'>You don't have file yet</div>";
-		}      
+			$files= "<div class='alert'>No File Here</div>";
+		}    
+		return $files;  
 	}
+	public function getFolders($userId,$folder, PDO $db) {
 
+		$query = $db->prepare('SELECT * FROM files WHERE userId = :userId AND isFolder = :isFolder ORDER BY paths');
+		$query->bindValue(':userId', $userId);
+		$query->bindValue(':isFolder', 1);
+		$query->execute();
+		$data = $query->fetchAll();
+		if(!empty($data)) {
+
+			if($folder=="root") $folders= '<div class="folder root actual" data-link="root">//</div>';
+			else $folders= '<div class="folder root" data-link="root">//</div>';
+
+			foreach ($data as $file) {
+				$dash="|";
+				for ($i=0; $i < substr_count($file[6], '/'); $i++) { 
+					$dash.='_';
+				}
+				if($file[6]==$folder) $folders.= '<div class="folder actual depth'. substr_count($file[6], '/') .'" data-link="'. $file[6] .'">' . $dash . $file[2] . '</div>';
+				else $folders.= '<div class="folder depth'. substr_count($file[6], '/') .'" data-link="'. $file[6] .'">' . $dash . $file[2] . '</div>';
+
+			}
+			
+		} 
+		else {
+			$folders= '<div class="folder root actual" data-link="root">//</div>';
+		}
+		return $folders;
+	}
 	public function getAllFiles(PDO $db) {
 
 		$query = $db->prepare('SELECT * FROM files');
@@ -53,37 +93,6 @@ class FileManager {
 		}      
 	}
 
-/*	public function connectUser(User $user, PDO $db) {
 
-		$query = $db->prepare('SELECT * FROM users WHERE email = :email AND mdp = :mdp');
-		$query->bindValue(':email', $user->getEmail());
-		$query->bindValue(':mdp', $user->getMdp());
-		$query->execute();
-		$data = $query->fetch();
-
-		if(!empty($data)) {
-
-			$_SESSION["userEmail"] = $data[2];
-			$_SESSION["userRole"] = $data[4];
-			header('Location: index.php?page=Home');
-		} else {
-			echo "<div class='alert alert-red'>please check your email and password</div>";
-		}
-	}
-
-	public function getUserName($userEmail, PDO $db) {
-
-		$query = $db->prepare('SELECT * FROM users WHERE email = :email');
-		$query->bindValue(':email', $userEmail);
-		$query->execute();
-		$data = $query->fetch();
-
-		if(!empty($data)) {
-			echo $data[1];
-		} else {
-			//echo "<div class='alert alert-red'> Ces identifiants n'existe pas, veuillez créer un compte.</div>";
-		}
-	}*/
-	
 	
 }

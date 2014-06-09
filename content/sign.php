@@ -38,6 +38,7 @@ require_once('library/manager/UserManager.class.php');
             <input type="radio" name="Plans" value="3">Heavy - 19.99$/mo <br/>
             <button class="btn" id="connexion" type="submit">Sign In</button>
         </form>
+        <div class="btn btn-nav" data-uri='Home'>Back to Home</div>
     </section>
 <?php 
     } 

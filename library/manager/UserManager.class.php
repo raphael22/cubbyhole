@@ -18,14 +18,14 @@ class UserManager {
 			$data = $query->fetch();
 
 			$userManager = new UserManager();
-        	$userManager->connectUser($user,$db);
+        	$userManager->connectUser($user,$db,true);
 		} 
 		else {
 			echo "<div class='alert alert-red'>This email is already register</div>";
 		}        
 	}
 
-	public function connectUser(User $user, PDO $db) {
+	public function connectUser(User $user, PDO $db,$newUser) {
 
 		$query = $db->prepare('SELECT * FROM users WHERE email = :email AND mdp = :mdp');
 		$query->bindValue(':email', $user->getEmail());
@@ -37,7 +37,11 @@ class UserManager {
 
 			$_SESSION["userId"] = $data[0];
 			$_SESSION["userRole"] = $data[4];
-			header('Location: index.php?page=Home');
+			if($newUser==true){
+				mkdir('C:\wamp\www\B3\supcubby\uploads/'. $data[0],7777,true);
+				header('Location: index.php?page=Profil');
+			}		
+			else header('Location: index.php?page=Home');
 
 		} else {
 			echo "<div class='alert alert-red'>please check your email and password</div>";
@@ -99,6 +103,30 @@ class UserManager {
 		}
 	}
 	
+	public function updateUser(User $user, PDO $db, $email) {
+
+		$query = $db->prepare('SELECT * FROM users WHERE email = :email');
+		$query->bindValue(':email', $email);
+		$query->execute();
+		$data = $query->fetch();
+
+		$query = $db->prepare('SELECT * FROM users WHERE email = :email');
+		$query->bindValue(':email', $user->getEmail());
+		$query->execute();
+		$newData = $query->fetch();
+
+		if(!empty($data) && empty($newData)) {
+			$query = $db->prepare('UPDATE users SET name = :name, mdp = :mdp, email = :newEmail WHERE email = :email');
+			$query->bindValue(':email', $email);
+			$query->bindValue(':newEmail', $user->getEmail());
+			$query->bindValue(':name', $user->getName());
+			$query->bindValue(':mdp', $user->getMdp());
+			$query->execute();
+			$data = $query->fetch();
+		}
+		else die('error');
+	}
+
 	public function disconnectUser() {
 
 		unset($_SESSION["userId"]);

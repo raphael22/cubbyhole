@@ -13,7 +13,7 @@ require_once('library/manager/UserManager.class.php');
             $user->setEmail($_POST['email']);
             $user->setMdp($mdp);
             $user->setRole("public");
-            $userManager->createUser($user, $db);
+            $userManager->createUser($user, $db, false);
             //header('Location: index.php?page=Home');
         } else {
         echo '<div class="alert alert-red">Error : Fill all fields.</div>';

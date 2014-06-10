@@ -34,12 +34,12 @@ if(isset($_GET['Work'])){
         	else $file->setFilePaths($_GET["Folder"] . '/' . $_FILES["file"]["name"]);
 
 	        if($_FILES["file"]["size"] < 1024){
-		        $file->setFileSize(round($_FILES["file"]["size"] / 4) . " Bytes");
+		        $file->setFileSize(round($_FILES["file"]["size"] / 4) . "Bytes");
 		    }
 		    else if(($_FILES["file"]["size"] / 1024) < 1024){
-		    	$file->setFileSize(round($_FILES["file"]["size"] / 1024) . " Kb");
+		    	$file->setFileSize(round($_FILES["file"]["size"] / 1024) . "Kb");
 		    }
-		    else $file->setFileSize(round($_FILES["file"]["size"] / 1048576) . " Mb");
+		    else $file->setFileSize(round($_FILES["file"]["size"] / 1048576) . "Mb");
 
 			
 			move_uploaded_file($_FILES['file']['tmp_name'],'C:\wamp\www\B3\supcubby\uploads/'.$_GET["UserId"].'/'.$file->getFilePaths());

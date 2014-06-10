@@ -1,7 +1,7 @@
 <?php 
 
 class UserManager {
-	public function createUser(User $user, PDO $db) {
+	public function createUser(User $user, PDO $db, $isQuery) {
 
 		$query = $db->prepare('SELECT * FROM users WHERE email = :email');
 		$query->bindValue(':email', $user->getEmail());
@@ -18,14 +18,14 @@ class UserManager {
 			$data = $query->fetch();
 
 			$userManager = new UserManager();
-        	$userManager->connectUser($user,$db,true);
+        	$userManager->connectUser($user,$db,true,$isQuery);
 		} 
 		else {
 			echo "<div class='alert alert-red'>This email is already register</div>";
 		}        
 	}
 
-	public function connectUser(User $user, PDO $db,$newUser) {
+	public function connectUser(User $user, PDO $db, $newUser, $isQuery) {
 
 		$query = $db->prepare('SELECT * FROM users WHERE email = :email AND mdp = :mdp');
 		$query->bindValue(':email', $user->getEmail());
@@ -39,7 +39,7 @@ class UserManager {
 			$_SESSION["userRole"] = $data[4];
 			if($newUser==true){
 				mkdir('C:\wamp\www\B3\supcubby\uploads/'. $data[0],7777,true);
-				header('Location: index.php?page=Profil');
+				if($isQuery==false)header('Location: index.php?page=Home');
 			}		
 			else header('Location: index.php?page=Home');
 
@@ -127,6 +127,21 @@ class UserManager {
 		else die('error');
 	}
 
+	public function deleteUser($email, PDO $db) {
+
+		$query = $db->prepare('SELECT * FROM users WHERE email = :email');
+		$query->bindValue(':email', $email);
+		$query->execute();
+		$data = $query->fetch();
+
+		if(!empty($data)) {
+			$query = $db->prepare('DELETE FROM users WHERE email = :email');
+			$query->bindValue(':email', $email);
+			$query->execute();
+			$data = $query->fetch();
+		}
+		else die("error - user doesn't exist");
+	}
 	public function disconnectUser() {
 
 		unset($_SESSION["userId"]);

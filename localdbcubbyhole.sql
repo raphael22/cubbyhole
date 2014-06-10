@@ -17,9 +17,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `localdbcubbyhole`
+-- Base de données: `Cubbyhole`
 --
-CREATE DATABASE IF NOT EXISTS `localdbcubbyhole` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `Cubbyhole` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `localdbcubbyhole`;
 
 -- --------------------------------------------------------

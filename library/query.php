@@ -32,7 +32,6 @@ if(isset($_GET['Get'])){
 	    header('Content-type: application/json');
 	    die(json_encode($files));
 	}
-	
 }
 else if(isset($_GET['Create'])){
 
@@ -40,12 +39,25 @@ else if(isset($_GET['Create'])){
 		$user = new User();
         $user->setName($_GET['Name']);
         $user->setEmail($_GET['Email']);
-        $user->setMdp($_GET['Password']);
+        $mdp = sha1($_GET['Password']);
+        $user->setMdp($mdp);
         $user->setRole("public");
-		$users = $userManager->createUser($user,$db);
+		$users = $userManager->createUser($user,$db,true);
 	}
-
-	
+	//?Create=File&UserId=1&Name=MonDossier&Size=0&IsFolder=1&Folder=root
+	//?Create=File&UserId=1&Name=MonFichier&Size=143Kb&IsFolder=0&Folder=root
+	if($_GET['Create']=='File'){
+		$file = new File();
+		$file->setFileUserId($_GET["UserId"]);
+	    $file->setFileName($_GET["Name"]);
+	    $file->setFileSize($_GET["Size"]);
+	    $file->setFileIsFolder($_GET["IsFolder"]);	        
+		$file->setFileFolder($_GET["Folder"]);
+		if($_GET["Folder"]=="root") $file->setFilePaths('/' . $_GET["Name"]);
+		else $file->setFilePaths($_GET["Folder"] . '/' . $_GET["Name"]);
+		$fileManager->recordFile($file,$db);
+		
+	}
 }
 else if(isset($_GET['Update'])){
 
@@ -61,12 +73,8 @@ else if(isset($_GET['Update'])){
 else if(isset($_GET['Delete'])){
 
 	if($_GET['Delete']=='User'){
-		$user = new User();
-        $user->setEmail($_GET['Email']);
-		$users = $userManager->createUser($user,$db);
+		$userManager->deleteUser($_GET['Email'],$db);
 	}
-
-	
 }
 else die("Error");
 

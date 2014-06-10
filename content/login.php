@@ -11,7 +11,7 @@ require_once('library/manager/UserManager.class.php');
             $user = new User();
             $user->setEmail($_POST['email']);
             $user->setMdp($mdp);
-            $userManager->connectUser($user, $db, false);
+            $userManager->connectUser($user, $db, false, false);
             //header("location:index.php?page=Home");
         } else {
         echo '<div class="alert alert-red">Error : Fill all fields.</div>';
